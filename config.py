@@ -15,7 +15,7 @@ BOT_IMAGE = getenv("BOT_IMAGE", "https://graph.org/file/8882cbd7cc786826d9ecb.jp
 
 BOT_TOKEN = getenv("BOT_TOKEN", "")
 
-Muntazer = getenv("muntazer", "vvyvv6")
+Muntazer = getenv("muntazer", "WX_PM")
 
 MONGO_DB_URI = getenv("MONGO_DB_URI", "")
 
@@ -46,8 +46,8 @@ GIT_TOKEN = getenv(
     "GIT_TOKEN", None
 )  # Fill this variable if your upstream repository is private
 
-SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "https://t.me/Xl444")
-SUPPORT_CHAT = getenv("SUPPORT_CHAT", "https://t.me/vvyvv6")
+SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "https://t.me/WX_PM")
+SUPPORT_CHAT = getenv("SUPPORT_CHAT", "https://t.me/Teto_Support")
 
 AUTO_LEAVING_ASSISTANT = bool(getenv("AUTO_LEAVING_ASSISTANT", False))
 AUTO_SUGGESTION_MODE = getenv("AUTO_SUGGESTION_MODE", "True")
