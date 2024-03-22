@@ -18,7 +18,7 @@ async def on_new_chat_members(client: Client, message: Message):
         title = message.chat.title
         username = f"@{message.chat.username}"
         chat_id = message.chat.id
-        riruru = f"✫ <b><u>ɴᴇᴡ ɢʀᴏᴜᴘ</u></b> :\n\nᴄʜᴀᴛ ɪᴅ : {chat_id}\nᴄʜᴀᴛ ᴜsᴇʀɴᴀᴍᴇ : {username}\nᴄʜᴀᴛ ᴛɪᴛʟᴇ : {title}\n\nᴀᴅᴅᴇᴅ ʙʏ : {added_by}"
+        riruru = f"✫ <b><u>جـروب جـديد 🤸‍♂️🖤.</u></b> :\n\nالايدي : {chat_id}\nمعـرف المجموعه : {username}\nالاسـم : {title}\n\nإضـيف بواسطه : {added_by}"
         reply_markup = InlineKeyboardMarkup([
     [
         InlineKeyboardButton(
@@ -34,11 +34,11 @@ async def on_new_chat_members(client: Client, message: Message):
 @app.on_message(filters.left_chat_member)
 async def on_left_chat_member(client: Client, message: Message):
     if (await client.get_me()).id == message.left_chat_member.id:
-        remove_by = message.from_user.mention if message.from_user else "ᴜɴᴋɴᴏᴡɴ ᴜsᴇʀ"
+        remove_by = message.from_user.mention if message.from_user else "يـوزر غير معروف"
         title = message.chat.title
         username = f"@{message.chat.username}"
         chat_id = message.chat.id
-        rirurubye = f"✫ <b><u>ʟᴇғᴛ ɢʀᴏᴜᴘ</u></b> :\n\nᴄʜᴀᴛ ɪᴅ : {chat_id}\nᴄʜᴀᴛ ᴜsᴇʀɴᴀᴍᴇ : {username}\nᴄʜᴀᴛ ᴛɪᴛʟᴇ : {title}\n\nʀᴇᴍᴏᴠᴇᴅ ʙʏ : {remove_by}"
+        rirurubye = f"✫ <b><u>غادر جـروب 🥲♥.</u></b> :\n\nالايدي : {chat_id}\nمعـرف المجموعه : {username}\nالاسـم : {title}\n\nطـرد بواسـطه : {remove_by}"
         reply_markup = InlineKeyboardMarkup([
     [
         InlineKeyboardButton(
