@@ -27,6 +27,7 @@ from pyrogram.errors import UserNotParticipant, ChatAdminRequired
 from config import Muntazer
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
+
 async def must_join_channel(app, msg):
     if not Muntazer:
         return
@@ -136,7 +137,7 @@ async def play_commnd(
                     forceplay=fplay,
                 )
             except Exception as e:
-                ex_type = type(e).__name__
+                ex_type = type(e).name
                 err = e if ex_type == "AssistantErr" else _["general_2"].format(ex_type)
                 return await mystic.edit_text(err)
             return await mystic.delete()
