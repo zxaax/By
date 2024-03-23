@@ -2,10 +2,10 @@ from pyrogram import Client, filters
 from pyrogram.types import Message
 from AarohiX import app
 
-@app.on_message(filters.command("groupinfo", prefixes="/"))
+@app.on_message(filters.command("معلومات المجموعه", prefixes=""))
 async def get_group_status(_, message: Message):
     if len(message.command) != 2:
-        await message.reply("Please provide a group username. Example: `/groupinfo YourGroupUsername`")
+        await message.reply("الرجاء تقديم اسم مستخدم المجموعة. مثال: `معلومات المجموعه @T7_AU`")
         return
     
     group_username = message.command[1]
@@ -22,11 +22,11 @@ async def get_group_status(_, message: Message):
 
     response_text = (
         f"➖➖➖➖➖➖➖\n"
-        f"➲ GROUP NAME : {group.title} ✅\n"
-        f"➲ GROUP ID : {group.id}\n"
-        f"➲ TOTAL MEMBERS : {total_members}\n"
-        f"➲ DESCRIPTION : {group_description or 'N/A'}\n"
-        f"➲ USERNAME : @{group_username}\n"
+        f"➲ أسم المجموعة : {group.title} ✅\n"
+        f"➲ معرف مجموعة : {group.id}\n"
+        f"➲ إجمالي الأعضاء : {total_members}\n"
+        f"➲ البايو : {group_description or 'N/A'}\n"
+        f"➲ اليوزر : @{group_username}\n"
        
         f"➖➖➖➖➖➖➖"
     )
