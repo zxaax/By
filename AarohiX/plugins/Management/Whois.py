@@ -19,27 +19,26 @@ def ReplyCheck(message: Message):
 
 infotext = (
     "[{full_name}](tg://user?id={user_id})\n\n"
-    " ➻ ᴜsᴇʀ ɪᴅ: `{user_id}`\n"
-    " ➻ ғɪʀsᴛ ɴᴀᴍᴇ: `{first_name}`\n"
-    " ➻ ʟᴀsᴛ ɴᴀᴍᴇ: `{last_name}`\n"
-    " ➻ ᴜsᴇʀɴᴀᴍᴇ: `@{username}`\n"
-    " ➻ ʟᴀsᴛ sᴇᴇɴ: `{last_online}`"
+    " ➻ ايـديك: `{user_id}`\n"
+    " ➻ اسـمك : `{first_name}`\n"
+    " ➻ يـوزرك: `@{username}`\n"
+    " ➻ اخـر نشاط: `{last_online}`"
 )
 
 
 def LastOnline(user: User):
     if user.is_bot:
         return ""
-    elif user.status == "recently":
+    elif user.status == "قريبا":
         return "ʀᴇᴄᴇɴᴛʟʏ"
     elif user.status == "within_week":
-        return "ᴡɪᴛʜɪɴ ᴛʜᴇ ʟᴀsᴛ ᴡᴇᴇᴋ"
+        return "اخر ظهور منذ اسبوع"
     elif user.status == "within_month":
-        return "ᴡɪᴛʜɪɴ ᴛʜᴇ ʟᴀsᴛ ᴍᴏɴᴛʜ"
+        return "اخر ظهور منذ شهر"
     elif user.status == "long_time_ago":
-        return "ᴀ ʟᴏɴɢ ᴛɪᴍᴇ ᴀɢᴏ :("
+        return "اخر ظهور منذ زمن :("
     elif user.status == "online":
-        return "ᴄᴜʀʀᴇɴᴛʟʏ ᴏɴʟɪɴᴇ"
+        return "اونلاين"
     elif user.status == "offline":
         return datetime.fromtimestamp(user.status.date).strftime(
             "%a, %d %b %Y, %H:%M:%S"
@@ -50,7 +49,7 @@ def FullName(user: User):
     return user.first_name + " " + user.last_name if user.last_name else user.first_name
 
 
-@app.on_message(filters.command("whois"))
+@app.on_message(filters.command("ايدي",prefixes=""))
 async def whois(client, message):
     cmd = message.command
     if not message.reply_to_message and len(cmd) == 1:
@@ -66,7 +65,7 @@ async def whois(client, message):
     try:
         user = await client.get_users(get_user)
     except PeerIdInvalid:
-        await message.reply("I don't know that user.")
+        await message.reply("أنا لا أعرف هذا المستخدم.")
         return
     desc = await client.get_chat(get_user)
     desc = desc.description
