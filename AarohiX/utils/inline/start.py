@@ -32,7 +32,7 @@ def private_panel(_):
             InlineKeyboardButton(text=_["S_B_5"], user_id=config.OWNER_ID),
         ],
         [
-            InlineKeyboardButton("「 سرعة البوت 」", callback_data="bot_info_data"),
+            InlineKeyboardButton("❲ سرعه البوت ❳", callback_data="bot_info_data"),
         ],
     ]
     return buttons
