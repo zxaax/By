@@ -455,7 +455,7 @@ async def caesar(client: Client, message: Message):
         f"{a}")   
 
 zzhtxt = [
-اهو انت💔🥺"
+" اهو انت💔🥺"
         ]
 
 @app.on_message(filters.command(["غلس"], ""), group=200873)
