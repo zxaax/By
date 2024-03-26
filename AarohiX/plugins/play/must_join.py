@@ -21,7 +21,7 @@ async def must_join_channel(bot: Client, msg: Message):
                     f"⌯︙عذࢪاَ عزيزي ↫ {msg.from_user.mention} \n⌯︙عـليك الاشـتࢪاك في قنـاة البـوت اولآ\n⌯︙قناة البوت: @WX_PM .\nꔹ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ꔹ",
                     disable_web_page_preview=True,
                     reply_markup=InlineKeyboardMarkup([
-                        [InlineKeyboardButton("ᯓ سورس ميوزك الزعيم 𝅘𝅥𝅯", url=link)]
+                        [InlineKeyboardButton("تحديثات سهيله 🧚🏻", url=link)]
                     ])
                 )
                 await msg.stop_propagation()
