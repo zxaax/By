@@ -5,7 +5,7 @@ from pyrogram.types import Message
 from strings.filters import command
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 from typing import Union
-from ZeMusic import app
+from AarohiX import app
 
 @app.on_message(command("طرح"))
 async def Saidi(_, message: Message):
