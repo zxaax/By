@@ -6,7 +6,7 @@ from AarohiX import app
 import random
     
 
-@app.on_message(command([f"رمزيات بنات", "صور"]))
+@app.on_message(command([f"صور", "صور بنات", "رمزيات بنات", "{BOT_USERNAME} صور"]))
 async def ihd(client: Client, message: Message):
     rl = random.randint(8,20)
     url = f"https://t.me/photo_teto1/{rl}"
@@ -15,7 +15,7 @@ async def ihd(client: Client, message: Message):
             [
                 [
                     InlineKeyboardButton(
-                        message.from_user.first_name, url=f"https://t.me/WX_PM")
+                        message.from_user.first_name, url=f"https://t.me/{message.from_user.username}")
                 ],
             ]
         )
