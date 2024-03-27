@@ -7,7 +7,7 @@ import aiofiles
 import aiohttp
 from PIL import (Image, ImageDraw, ImageEnhance, ImageFilter,
                  ImageFont, ImageOps)
-from youtubesearchpython.__future__ import VideosSearch
+from youtubesearchpython.future import VideosSearch
 import numpy as np
 from config import YOUTUBE_IMG_URL
 
@@ -84,7 +84,7 @@ async def get_thumb(videoid):
             background = enhancer.enhance(0.6)
             image2 = background
                                                                                             
-            circle = Image.open("AarohiX/assets/circle.png")
+            circle = Image.open("AarohiX/assets/thum.png")
 
             # changing circle color
             im = circle
@@ -114,7 +114,6 @@ async def get_thumb(videoid):
 
             image2.paste(image3, (50,70), mask = image3)
             image2.paste(circle, (0,0), mask = circle)
-
             # fonts
             font1 = ImageFont.truetype('AarohiX/assets/font.ttf', 30)
             font2 = ImageFont.truetype('AarohiX/assets/font2.ttf', 70)
@@ -122,7 +121,7 @@ async def get_thumb(videoid):
             font4 = ImageFont.truetype('AarohiX/assets/font2.ttf', 35)
 
             image4 = ImageDraw.Draw(image2)
-            image4.text((10, 10), "DIL[AAROHI] x MUSIC", fill="white", font = font1, align ="left") 
+            image4.text((10, 10), "TETOMUSIC", fill="white", font = font1, align ="left") 
             image4.text((670, 150), "NOW PLAYING", fill="white", font = font2, stroke_width=2, stroke_fill="white", align ="left") 
 
             # title
