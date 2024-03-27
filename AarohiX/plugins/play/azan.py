@@ -27,16 +27,16 @@ chat = []
 async def azaan(c, msg):
   if msg.text == "تفعيل الاذان":
     if msg.chat.id in chat:
-      return await msg.reply_text("**تنبيه الأذان مفعل هنا من قبل 😊♥️**")
+      return await msg.reply_text("تنبيه الأذان مفعل هنا من قبل 😊♥️")
     else:
       chat.append(msg.chat.id)
-      return await msg.reply_text("**تم تفعيل الاذان في هذه المحادثة بنجاح ♥️🌿**")
+      return await msg.reply_text("تم تفعيل الاذان في هذه المحادثة بنجاح ♥️🌿")
   elif msg.text == "تعطيل الاذان":
     if msg.chat.id in chat:
       chat.remove(msg.chat.id)
-      return await msg.reply_text("**تم الغاء تفعيل الاذان في هذه المحادثة بنجاح ♥️🌿**")
+      return await msg.reply_text("تم الغاء تفعيل الاذان في هذه المحادثة بنجاح ♥️🌿")
     else:
-      return await msg.reply_text("**تنبيه الأذان لم يفعل هنا من قبل 😊♥️**")
+      return await msg.reply_text("تنبيه الأذان لم يفعل هنا من قبل 😊♥️")
       
 async def kill():
   for i in chat:
@@ -59,7 +59,7 @@ async def play(i):
     except Exception as e:
        await app.send_message(i,f"{e}")
   except TelegramServerError:
-    await app.send_message(i,"**في خطا ف سيرفرات التليجرام**")
+    await app.send_message(i,"في خطا ف سيرفرات التليجرام")
   except AlreadyJoinedError:
     await kill()
     try:
