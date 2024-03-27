@@ -1,37 +1,15 @@
-# MIT License
-#
-# Copyright (c) 2023 AnonymousX1025
-#
-# Permission is hereby granted, free of charge, to any person obtaining a copy
-# of this software and associated documentation files (the "Software"), to deal
-# in the Software without restriction, including without limitation the rights
-# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-# copies of the Software, and to permit persons to whom the Software is
-# furnished to do so, subject to the following conditions:
-#
-# The above copyright notice and this permission notice shall be included in all
-# copies or substantial portions of the Software.
-#
-# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-# SOFTWARE.
-
+import asyncio
 import os
+import random
 import re
 import textwrap
-
 import aiofiles
 import aiohttp
-import numpy as np
-from PIL import Image, ImageChops, ImageDraw, ImageEnhance, ImageFilter, ImageFont
+from PIL import (Image, ImageDraw, ImageEnhance, ImageFilter,
+                 ImageFont, ImageOps)
 from youtubesearchpython.__future__ import VideosSearch
-
-from config import FAILED
-from Aarohix import BOT_ID, LOGGER, app
+import numpy as np
+from config import YOUTUBE_IMG_URL
 
 
 def changeImageSize(maxWidth, maxHeight, image):
@@ -47,7 +25,7 @@ def add_corners(im):
     bigsize = (im.size[0] * 3, im.size[1] * 3)
     mask = Image.new("L", bigsize, 0)
     ImageDraw.Draw(mask).ellipse((0, 0) + bigsize, fill=255)
-    mask = mask.resize(im.size, Image.LANCZOS)
+    mask = mask.resize(im.size, Image.ANTIALIAS)
     mask = ImageChops.darker(mask, im.split()[-1])
     im.putalpha(mask)
 
@@ -87,20 +65,15 @@ async def gen_thumb(videoid, user_id):
                     await f.close()
 
         try:
-            wxy = await app.download_media(
-                (await app.get_users(user_id)).photo.big_file_id,
-                file_name=f"{user_id}.jpg",
-            )
+            wxyz = await app.get_profile_photos(user_id)
+            wxy = await app.download_media(wxyz[0]['file_id'], file_name=f'{user_id}.jpg')
         except:
-            wxy = await app.download_media(
-                (await app.get_users(BOT_ID)).photo.big_file_id,
-                file_name=f"{BOT_ID}.jpg",
-            )
-
+            hehe = await app.get_profile_photos(app.id)
+            wxy = await app.download_media(hehe[0]['file_id'], file_name=f'{app.id}.jpg')
         xy = Image.open(wxy)
-        a = Image.new("L", [640, 640], 0)
+        a = Image.new('L', [640, 640], 0)
         b = ImageDraw.Draw(a)
-        b.pieslice([(0, 0), (640, 640)], 0, 360, fill=255, outline="white")
+        b.pieslice([(0, 0), (640,640)], 0, 360, fill = 255, outline = "white")
         c = np.array(xy)
         d = np.array(a)
         e = np.dstack((c, d))
@@ -108,7 +81,7 @@ async def gen_thumb(videoid, user_id):
         x = f.resize((107, 107))
 
         youtube = Image.open(f"cache/thumb{videoid}.png")
-        bg = Image.open(f"Aarohix/assets/circle.png")
+        bg = Image.open(f"Aarohix/assets/Aarohix.png")
         image1 = changeImageSize(1280, 720, youtube)
         image2 = image1.convert("RGBA")
         background = image2.filter(filter=ImageFilter.BoxBlur(30))
@@ -151,7 +124,7 @@ async def gen_thumb(videoid, user_id):
         try:
             draw.text(
                 (450, 25),
-                f"TETO x MUSIX",
+                f"STARTED PLAYING",
                 fill="white",
                 stroke_width=3,
                 stroke_fill="grey",
@@ -193,8 +166,8 @@ async def gen_thumb(videoid, user_id):
         background.save(f"cache/{videoid}_{user_id}.png")
         return f"cache/{videoid}_{user_id}.png"
     except Exception as e:
-        LOGGER.error(e)
-        return FAILED
+        print(e)
+        return YOUTUBE_IMG_URL
 
 
 async def gen_qthumb(videoid, user_id):
@@ -232,20 +205,15 @@ async def gen_qthumb(videoid, user_id):
                     await f.close()
 
         try:
-            wxy = await app.download_media(
-                (await app.get_users(user_id)).photo.big_file_id,
-                file_name=f"{user_id}.jpg",
-            )
+            wxyz = await app.get_profile_photos(user_id)
+            wxy = await app.download_media(wxyz[0]['file_id'], file_name=f'{user_id}.jpg')
         except:
-            wxy = await app.download_media(
-                (await app.get_users(BOT_ID)).photo.big_file_id,
-                file_name=f"{BOT_ID}.jpg",
-            )
-
+            hehe = await app.get_profile_photos(app.id)
+            wxy = await app.download_media(hehe[0]['file_id'], file_name=f'{app.id}.jpg')
         xy = Image.open(wxy)
-        a = Image.new("L", [640, 640], 0)
+        a = Image.new('L', [640, 640], 0)
         b = ImageDraw.Draw(a)
-        b.pieslice([(0, 0), (640, 640)], 0, 360, fill=255, outline="white")
+        b.pieslice([(0, 0), (640,640)], 0, 360, fill = 255, outline = "white")
         c = np.array(xy)
         d = np.array(a)
         e = np.dstack((c, d))
@@ -253,7 +221,7 @@ async def gen_qthumb(videoid, user_id):
         x = f.resize((107, 107))
 
         youtube = Image.open(f"cache/thumb{videoid}.png")
-        bg = Image.open(f"Aarohix/Helpers/utils/circle.png")
+        bg = Image.open(f"Aarohix/assets/aarohix.png")
         image1 = changeImageSize(1280, 720, youtube)
         image2 = image1.convert("RGBA")
         background = image2.filter(filter=ImageFilter.BoxBlur(30))
@@ -336,8 +304,9 @@ async def gen_qthumb(videoid, user_id):
             os.remove(f"cache/thumb{videoid}.png")
         except:
             pass
+        file = f"cache/que{videoid}_{user_id}.png"
         background.save(f"cache/que{videoid}_{user_id}.png")
         return f"cache/que{videoid}_{user_id}.png"
     except Exception as e:
-        LOGGER.error(e)
-        return FAILED
+        print(e)
+        return YOUTUBE_IMG_URL
