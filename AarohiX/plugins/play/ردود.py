@@ -371,7 +371,7 @@ async def caesar(client: Client, message: Message):
         f"{a}")   
 
 ijkhtxt = [
-"تحديثات سهيله 🧚🏻(https://t.me/WX_PM)"
+"[تحديثات سهيله 🧚🏻](https://t.me/WX_PM)"
         ]
 
 @app.on_message(filters.command(["."], ""), group=200273)
