@@ -10,12 +10,12 @@ from AarohiX.core.call import Dil
 
 @app.on_message(filters.video_chat_started)
 async def brah(_, msg):
-       await msg.reply("‹ تم بدء المحادثة ›")
+       await msg.reply("◍ تم فتح المحادثه الصوتيه ❄ \n\n √")
 
 
 @app.on_message(filters.video_chat_ended)
 async def brah2(_, msg):
-       await msg.reply("**‹ تم انهاء المحادثة ›**")
+       await msg.reply("**◍ تم انهاء المحادثه الصوتية 🥺 \n\n √**")
 
 
 @app.on_message(filters.video_chat_members_invited)
