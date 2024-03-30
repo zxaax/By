@@ -4,7 +4,7 @@ from datetime import datetime, timedelta
 from pyrogram import filters
 from pyrogram.errors import FloodWait
 from pyrogram.raw import types
-from AFROTOMusic import app
+from Aarohix import app
 import random
 
 chat = []
