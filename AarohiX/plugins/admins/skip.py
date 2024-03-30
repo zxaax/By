@@ -1,20 +1,19 @@
 from pyrogram import filters
 from pyrogram.types import InlineKeyboardMarkup, Message
-
 import config
 from AarohiX import YouTube, app
 from AarohiX.core.call import Dil
 from AarohiX.misc import db
+from strings.filters import command
 from AarohiX.utils.database import get_loop
 from AarohiX.utils.decorators import AdminRightsCheck
 from AarohiX.utils.inline import close_markup, stream_markup
 from AarohiX.utils.stream.autoclear import auto_clean
 from AarohiX.utils.thumbnails import get_thumb
-from config import BANNED_USERS
 
 
 @app.on_message(
-    filters.command(["skip", "cskip", "next", "cnext"]) & filters.group & ~BANNED_USERS
+    command(["سكب", "تخطي", "التالي", "الي بعدة"]) 
 )
 @AdminRightsCheck
 async def skip(cli, message: Message, _, chat_id):
