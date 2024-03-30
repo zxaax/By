@@ -179,7 +179,7 @@ async def almortagel(client: Client, message: Message):
         )
     )
     
-@app.on_message(filters.command(["استوري", "استوريهات], ""))
+@app.on_message(filters.command(["استوري", "استوريهات"], ""))
 async def almortagel(client: Client, message: Message):
     rl = random.randint(2,148)
     url = f"https://t.me/yoipopl/{rl}"
