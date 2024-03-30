@@ -9,6 +9,7 @@ from AarohiX import LOGGER, app, userbot
 from AarohiX.core.call import Dil
 from AarohiX.misc import sudo
 from AarohiX.plugins import ALL_MODULES
+from AarohiX.plugins.play.azan import azkar
 from AarohiX.utils.database import get_banned_users, get_gbanned
 from config import BANNED_USERS
 
@@ -52,6 +53,7 @@ async def init():
     LOGGER("AarohiX").info(
         "- تم تنصيب سورس تيتو بنجاح "
     )
+    await azkar()
     await idle()
     await app.stop()
     await userbot.stop()
