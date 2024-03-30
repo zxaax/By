@@ -62,3 +62,21 @@ async def strcall(client, message):
             [InlineKeyboardButton("- قناة البوت . ", url=config.SUPPORT_CHAT)],
         ])
         await message.reply(f"{text}", reply_markup=inline_keyboard)
+
+
+
+@app.on_message(command(['ز','زوجني']))
+def iddd(client:Client, message:Message):
+    chat_id = message.chat.id
+    if chat_id in iddof:
+         return
+    members = [
+        member for member in client.get_chat_members(chat_id)
+        if not member.user.is_bot
+    ]
+    random_member = random.choice(members)
+    random_member_mention = f"[{random_member.user.first_name}]( tg://openmessage?user_id={random_member.user.id} )"
+    random_message = random.choice([
+        f"• اخترت لك هذا الشخص \n {random_member_mention} \n 🙈♥️",
+        f"• اخترت لك هذا الشخص \n {random_member_mention} \n **"
+    ])
