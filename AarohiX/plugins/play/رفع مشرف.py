@@ -70,7 +70,7 @@ def promote_c_admin(client, message):
                     can_manage_chat=True,
                     can_delete_messages=True,
                     can_manage_video_chats=True,
-                    can_restrict_members=True,
+                    can_restrict_members=False,
                     can_promote_members=False,
                     can_change_info=False,
                     can_post_messages=True,
@@ -114,9 +114,9 @@ def promote_g_admin(client, message):
                     can_manage_chat=True,
                     can_delete_messages=True,
                     can_manage_video_chats=True,
-                    can_restrict_members=True,
-                    can_promote_members=True,
-                    can_change_info=True,
+                    can_restrict_members=False,
+                    can_promote_members=False,
+                    can_change_info=False,
                     can_post_messages=False,
                     can_edit_messages=False,
                     can_invite_users=True,
@@ -127,4 +127,4 @@ def promote_g_admin(client, message):
     for tom in tooom:
     	if tom.user.id == tom_id and (tom.status == enums.ChatMemberStatus.OWNER or tom.status == enums.ChatMemberStatus.ADMINISTRATOR):
     		client.promote_chat_member(chat_id, user_id, ToM)
-    		message.reply(f"تم رفع {user_id} ادمن بنجاح")
+    		message.reply(f"◍ تم رفع {user_id} ادمن بنجاح \n\n √")
