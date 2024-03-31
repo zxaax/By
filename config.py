@@ -11,11 +11,11 @@ API_ID = int(getenv("API_ID", ""))
 
 API_HASH = getenv("API_HASH", "")
 
-BOT_IMAGE = getenv("BOT_IMAGE", "https://graph.org/file/8882cbd7cc786826d9ecb.jpg")
+BOT_IMAGE = getenv("BOT_IMAGE", "https://telegra.ph/file/9ab00e3d18675da305dbb.jpg")
 
 BOT_TOKEN = getenv("BOT_TOKEN", "")
 
-Muntazer = getenv("muntazer", "WX_PM")
+Muntazer = getenv("muntazer", "Tepthon")
 
 MONGO_DB_URI = getenv("MONGO_DB_URI", "")
 
@@ -27,7 +27,7 @@ SONG_DOWNLOAD_DURATION = int(
 
 LOGGER_ID = int(getenv("LOGGER_ID", ""))
 
-OWNER_ID = int(getenv("OWNER_ID", "1854384004"))
+OWNER_ID = int(getenv("OWNER_ID", "1260465030"))
 
 BOT_USERNAME = getenv("BOT_USERNAME" , "")
 
@@ -39,15 +39,15 @@ HEROKU_API_KEY = getenv("HEROKU_API_KEY")
 
 UPSTREAM_REPO = getenv(
     "UPSTREAM_REPO",
-    "https://github.com/RRYR7/TePthon",
+    "https://github.com/RRYR7/QuranEzaa",
 )
 UPSTREAM_BRANCH = getenv("UPSTREAM_BRANCH", "main")
 GIT_TOKEN = getenv(
     "GIT_TOKEN", None
 )  # Fill this variable if your upstream repository is private
 
-SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "https://t.me/WX_PM")
-SUPPORT_CHAT = getenv("SUPPORT_CHAT", "https://t.me/Teto_Support")
+SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "https://t.me/Tepthon")
+SUPPORT_CHAT = getenv("SUPPORT_CHAT", "https://t.me/Tepthon_Help")
 
 AUTO_LEAVING_ASSISTANT = bool(getenv("AUTO_LEAVING_ASSISTANT", False))
 AUTO_SUGGESTION_MODE = getenv("AUTO_SUGGESTION_MODE", "True")
@@ -96,7 +96,7 @@ PING_IMG_URL = getenv(
     "PING_IMG_URL", "https://te.legra.ph/file/f70081ed82879c1a24068.jpg"
 )
 PLAYLIST_IMG_URL = getenv(
-    "PLAYLIST_IMG_URL", "https://te.legra.ph/file/f70081ed82879c1a24068.jpg"
+    "PLAYLIST_IMG_URL", "https://te.legra.ph/file/9ab00e3d18675da305dbb.jpg"
 )                          
 STATS_IMG_URL = getenv(
     "STATS_IMG_URL", "https://te.legra.ph/file/f70081ed82879c1a24068.jpg"
