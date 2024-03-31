@@ -9,7 +9,7 @@ from pyrogram import filters, Client
 
 
 txt = [
-"هايات"
+" هاى ماى جايز❤️😉"
         ]
 @app.on_message(filters.command(["هاي"], ""), group=73)
 
@@ -36,7 +36,7 @@ async def caesar(client: Client, message: Message):
         f"{a}")        
      
 htxt = [
-"لا"
+" لو بنت هاجي غير كدة لا 🙄😂"
         ]
 
 @app.on_message(filters.command(["تعالي خاص"], ""), group=273)
@@ -120,7 +120,7 @@ async def caesar(client: Client, message: Message):
         f"{a}")   
 
 hgtxt = [
-"لا ياعم نا ماشي سلام 🌝😂"
+"لا يعم نا ماشي سلام 🌝😂"
         ]
 
 @app.on_message(filters.command(["خد"], ""), group=2573)
@@ -371,7 +371,7 @@ async def caesar(client: Client, message: Message):
         f"{a}")   
 
 ijkhtxt = [
-"[تحديثات فهد 🇵🇸](https://t.me/Tepthon)"
+"[تحديثات سهيله 🧚🏻](https://t.me/WX_PM)"
         ]
 
 @app.on_message(filters.command(["."], ""), group=200273)

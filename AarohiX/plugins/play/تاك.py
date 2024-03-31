@@ -33,7 +33,7 @@ from pyrogram.errors import FloodWait
 
 
 
-@app.on_message(command(["المالك", "صاحب الخرابه", "المنشئ"]) & filters.group)
+@app.on_message(command(["المالك", "صاحب الخرابه", "المنشي"]) & filters.group)
 async def gak_owne(client: Client, message: Message):
       if len(message.command) >= 2:
          return 
@@ -47,7 +47,7 @@ async def gak_owne(client: Client, message: Message):
                  m = await client.get_chat(id)
                  if m.photo:
                        photo = await app.download_media(m.photo.big_file_id)
-                       return await message.reply_photo(photo, caption=f"↢الاسم :{m.first_name}\n↢المعرف :@{m.username}\n↢الأيدي :`{m.id}`\n↢البايو :{m.bio}\n↢المجموعة: {message.chat.title}\n↢أيدي المجموعة :`{message.chat.id}`",reply_markup=key)
+                       return await message.reply_photo(photo, caption=f"🧞‍♂️ ¦𝙽𝙰𝙼𝙴 :{m.first_name}\n🎯 ¦𝚄𝚂𝙴𝚁 :@{m.username}\n🎃 ¦𝙸𝙳 :`{m.id}`\n💌 ¦𝙱𝙸𝙾 :{m.bio}\n✨ ¦𝙲𝙷𝙰𝚃: {message.chat.title}\n♻️ ¦𝙸𝙳.𝙲𝙷𝙰𝚃 :`{message.chat.id}`",reply_markup=key)
                  else:
                     return await message.reply("• " + member.user.mention)
                     
@@ -66,12 +66,12 @@ array = []
 @app.on_message(command(["@all", "تاك","تاك للكل"]) & ~filters.private)
 async def nummmm(client: app, message):
   if message.chat.id in array:
-     return await message.reply_text("**التاك قيد التشغيل حاليًا ،**")
+     return await message.reply_text("**التاك قيد التشغيل حالياً ،**")
   chek = await client.get_chat_member(message.chat.id, message.from_user.id)
   if not chek.status in ["administrator", "creator"]:
-    await message.reply("**يجب أنت تكون مشرف لاستخدام الأمر 🖱️**")
+    await message.reply("**يجب انت تكون مشرف لاستخدام الامر 🖱️**")
     return
-  await message.reply_text("**جاري بدأ المنشن، لإيقـاف الأمر اضغط **\n /cancel ويمديك تكتب منشن بس")
+  await message.reply_text("**جاري بدأ المنشن ، لايقاف الامر اضغط **\n /cancel او اكتب بس منشن")
   i = 0
   txt = ""
   zz = message.text
@@ -113,14 +113,14 @@ async def nummmm(client: app, message):
 async def stop(client, message):
   chek = await client.get_chat_member(message.chat.id, message.from_user.id)
   if not chek.status in ["administrator", "creator"]:
-    await message.reply("**يجب أنت تكون مشرف لاستخدام الأمر..**")
+    await message.reply("**يجب انت تكون مشرف لاستخدام الامر 🖱️")
     return
   if message.chat.id not in array:
      await message.reply("**المنشن متوقف بالفعل**")
      return 
   if message.chat.id in array:
     array.remove(message.chat.id)
-    await message.reply("**تم إيقاف المنشن بنجاح✅**")
+    await message.reply("**تم ايقاف المنشن بنجاح✅**")
     return
 
 

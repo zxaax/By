@@ -33,12 +33,12 @@ async def call_dev(client: Client, message: Message):
                                      f"- بمناداتك عزيزي المطور\n"
                                      f"- الأيدي {user_id}\n"
                                      f"- اليوزر @{user_ab}\n"
-                                     f"- أيدي المجموعة {message.chat.id}\n"
+                                     f"- ايدي المجموعة {message.chat.id}\n"
                                      f"- الرابط {chatusername}",
                                      reply_markup=reply_markup)
 
     # إنشاء زر "اونلاين"
-    online_button = InlineKeyboardButton("♥", url=f"https://t.me/{Muntazer}")
+    online_button = InlineKeyboardButton("< freedom >", url=f"https://t.me/{Muntazer}")
     
     await message.reply_text(f"~ **تم إرسال النداء إلى مطور البوت\n\n-› Master -› @{Muntazer} .",
                              disable_web_page_preview=True,
