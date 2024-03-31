@@ -9,18 +9,18 @@ from AarohiX.misc import SUDOERS
 
 
 
-@app.on_message(filters.command("givelink"))
+@app.on_message(filters.command("رابط المجموعة"))
 async def give_link_command(client, message):
     # Generate an invite link for the chat where the command is used
     chat = message.chat.id
     link = await app.export_chat_invite_link(chat)
-    await message.reply_text(f"Here's the invite link for this chat:\n{link}")
+    await message.reply_text(f"⋙ رابـط المجموعـة :\n{link}")
 
 
-@app.on_message(filters.command(["link", "invitelink"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]) & SUDOERS)
+@app.on_message(filters.command(["رابط الدعوة", "invitelink"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]) & SUDOERS)
 async def link_command_handler(client: Client, message: Message):
     if len(message.command) != 2:
-        await message.reply("Invalid usage. Correct format: /link group_id")
+        await message.reply("مو هيك يستخدم الأمر يا جميل يستخدم كذا : رابط الدعوة + أيدي المجموعة ")
         return
 
     group_id = message.command[1]
@@ -30,7 +30,7 @@ async def link_command_handler(client: Client, message: Message):
         chat = await client.get_chat(int(group_id))
 
         if chat is None:
-            await message.reply("Unable to get information for the specified group ID.")
+            await message.reply("خطـأ في العثور على رابط الدعوة .")
             return
 
         try:
@@ -66,7 +66,7 @@ async def link_command_handler(client: Client, message: Message):
         )
 
     except Exception as e:
-        await message.reply(f"Error: {str(e)}")
+        await message.reply(f"خطـأ : {str(e)}")
 
     finally:
         if os.path.exists(file_name):

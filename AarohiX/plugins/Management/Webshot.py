@@ -59,10 +59,10 @@ async def eor(msg: Message, **kwargs):
     return await func(**{k: v for k, v in kwargs.items() if k in spec})
 
 
-@app.on_message(filters.command("اسكرين",prefixes=""))
+@app.on_message(filters.command("سكرين",prefixes=""))
 async def take_ss(_, message: Message):
     if len(message.command) < 2:
-        return await eor(message, text="**• استخدم الامر هكذا : \n\n • اسكرين + اللينك **")
+        return await eor(message, text="**↢ استخدم الأمر هكذا : سكرين + الرابط .**")
 
     if len(message.command) == 2:
         url = message.text.split(None, 1)[1]
@@ -76,9 +76,9 @@ async def take_ss(_, message: Message):
             "true",
         ]
     else:
-        return await eor(message, text="**خطا حاول مجددا**")
+        return await eor(message, text="**↢خطأ حاول مُجددًا .**")
 
-    m = await eor(message, text="**◍ جاري رفع الاسكرين علي محركات التلي**")
+    m = await eor(message, text="**↢جاري رفع السكرين على محركات التليجـرام...**")
 
     try:
         photo = await take_screenshot(url, full)

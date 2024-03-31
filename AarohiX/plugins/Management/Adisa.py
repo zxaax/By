@@ -50,21 +50,21 @@ async def admin_check(message: Message) -> bool:
 
 
 Adisa_text = [
-    "hey please don't disturb me.",
-    "who are you",
-    "aap kon ho",
-    "aap mere owner to nhi lgte ",
-    "hey tum mera name kyu le rhe ho meko sone do",
-    "ha bolo kya kaam hai ",
-    "dekho abhi mai busy hu ",
-    "hey i am busy",
-    "aapko smj nhi aata kya ",
-    "leave me alone",
-    "dude what happend",
+    "وخر من هنا.",
+    "شتبي؟",
+    "هلا",
+    "لبيه",
+    "أطلق من يناديني",
+    "مشغول",
+    "كم مرة قلت لك مشغول؟",
+    "✨🕊️ هلا وغلا",
+    "لبيـه 🤍",
+    "هلا فيك",
+    "كم مرة ناديتني؟",
 ]
 
 strict_txt = [
-    "i can't restrict against my besties",
+    "لا أستطيع أن أقيد ضد أعزائي",
     "are you serious i am not restrict to my friends",
     "fuck you bsdk k mai apne dosto ko kyu kru",
     "hey stupid admin ",
@@ -73,19 +73,19 @@ strict_txt = [
     "i love him please don't restict this user try to usertand ",
 ]
 
-ban = ["ban", "boom"]
-unban = ["unban",]
-mute = ["mute", "silent", "shut"]
-unmute = ["unmute", "speak", "free"]
-kick = ["kick", "out", "nikaal", "nikal"]
-promote = ["promote", "adminship"]
-demote = ["demote", "lelo"]
-group = ["group"]
-channel = ["channel"]
+ban = ["حظر", "boom"]
+unban = ["الغاء الحظر",]
+mute = ["كتم", "silent", "shut"]
+unmute = ["الغاء الكتم", "speak", "free"]
+kick = ["طرد", "out", "nikaal", "nikal"]
+promote = ["رفع مشرف", "رفع رئيس"]
+demote = ["تنزيل مشرف", "lelo"]
+group = ["المجموعة"]
+channel = ["القناة"]
 
 # ========================================= #
 
-@app.on_message(filters.command(["disa", "disha"], prefixes=["a", "A"]) & admin_filter)
+@app.on_message(filters.command(["فهد", "فهود"], prefixes=["a", "A"]) & admin_filter)
 async def restriction_app(app: app, message):
     reply = message.reply_to_message
     chat_id = message.chat.id
@@ -97,7 +97,7 @@ async def restriction_app(app: app, message):
     if reply:
         user_id = reply.from_user.id
         for banned in data:
-            print(f"present {banned}")
+            print(f"أبشر {banned}")
             if banned in ban:
                 if user_id in SUDOERS:
                     await message.reply(random.choice(strict_txt))
@@ -106,7 +106,7 @@ async def restriction_app(app: app, message):
                     await message.reply("OK, Ban kar diya madrchod ko sala Chutiya tha !")
 
         for unbanned in data:
-            print(f"present {unbanned}")
+            print(f"أبشر {unbanned}")
             if unbanned in unban:
                 await app.unban_chat_member(chat_id, user_id)
                 await message.reply(f"Ok, aap bolte hai to unban kar diya")
@@ -136,7 +136,7 @@ async def restriction_app(app: app, message):
             if unmuted in unmute:
                 permissions = ChatPermissions(can_send_messages=True)
                 await message.chat.restrict_member(user_id, permissions)
-                await message.reply(f"Huh, OK, sir!")
+                await message.reply(f"هاه، حسنًا يا سيدي!")
 
         for promoted in data:
             print(f"present {promoted}")
@@ -151,7 +151,7 @@ async def restriction_app(app: app, message):
                     can_manage_chat=True,
                     can_manage_video_chats=True,
                 ))
-                await message.reply("promoted !")
+                await message.reply("↢ أبشر رفعته مُشرف .")
 
         for demoted in data:
             print(f"present {demoted}")
@@ -166,4 +166,4 @@ async def restriction_app(app: app, message):
                     can_manage_chat=False,
                     can_manage_video_chats=False,
                 ))
-                await message.reply("demoted !")
+                await message.reply("↢ أبشر نزلته من الإشراف .")

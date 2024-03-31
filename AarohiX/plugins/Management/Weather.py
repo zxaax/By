@@ -10,4 +10,4 @@ def weather(client, message):
         
         message.reply_photo(photo=weather_url, caption="إليك الطقس لموقعك")
     except IndexError:
-        message.reply_text("يرجى استخدام الامر مثل الطقس نيو يورك")
+        message.reply_text("⋙ الاستخدام : الطقس + الدولة أو المدينة مثال : الطقس فلسطين")

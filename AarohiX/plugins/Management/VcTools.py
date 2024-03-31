@@ -7,17 +7,17 @@ from config import OWNER_ID
 
 @app.on_message(filters.video_chat_started)
 async def brah(_, msg):
-       await msg.reply("◍ تم فتح المحادثه الصوتيه ❄ \n\n √")
+       await msg.reply("◍ تم فتح المحادثه الصوتية ❄ \n\n √")
 
 
 @app.on_message(filters.video_chat_ended)
 async def brah2(_, msg):
-       await msg.reply("**◍ تم انهاء المحادثه الصوتية 🥺 \n\n √**")
+       await msg.reply("**◍ تم إنهـاء المحادثه الصوتية 🥺 \n\n √**")
 
 
 @app.on_message(filters.video_chat_members_invited)
 async def brah3(app :app, message:Message):
-           text = f"{message.from_user.mention} ɪɴᴠɪᴛᴇᴅ "
+           text = f"{message.from_user.mention} مدعو "
            x = 0
            for user in message.video_chat_members_invited.users:
              try:
@@ -66,6 +66,6 @@ async def search(event):
                     # remove duplicates
                     continue
                 result += f"{title}\n{link}\n\n"
-            prev_and_next_btns = [Button.inline("▶️Next▶️", data=f"next {start+10} {event.text.split()[1]}")]
+            prev_and_next_btns = [Button.inline("▶️التالي▶️", data=f"next {start+10} {event.text.split()[1]}")]
             await msg.edit(result, link_preview=False, buttons=prev_and_next_btns)
             await session.close()

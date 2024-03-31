@@ -22,9 +22,9 @@ def generate_test_card_number(prefix, length):
     checksum = luhn_checksum(int(card_number) * 10)
     return card_number + str((10 - checksum) % 10)
 
-@app.on_message(filters.command("genbin"))
+@app.on_message(filters.command("بين"))
 def generate(client, message):
     prefix = random.choice(VALID_PREFIXES)
     length = 6
     card_number = generate_test_card_number(prefix, length)
-    message.reply_text(f"**BIN Successfully Generated**\n{card_number} ✅")
+    message.reply_text(f"**تم صنع بين**\n{card_number} ✅")

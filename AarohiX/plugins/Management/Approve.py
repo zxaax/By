@@ -18,16 +18,16 @@ from typing import Union, Optional
 
 # --------------------------------------------------------------------------------- #
 
-@Adisa.on_callback_query(filters.regex("close"))
+@Adisa.on_callback_query(filters.regex("اغلاق"))
 async def close(_, query: CallbackQuery):
            query = query.message
            await query.delete()
 
-close_button = InlineKeyboardButton("• ᴄʟᴏsᴇ •", callback_data="close")
+close_button = InlineKeyboardButton("• إغلاق •", callback_data="close")
 
 # --------------------------------------------------------------------------------- #
 
-@Adisa.on_callback_query(filters.regex("gib_source"))
+@Adisa.on_callback_query(filters.regex("giajhshsh_source"))
 async def gib_repo_callback(_, callback_query):
     await callback_query.edit_message_media(
         media=InputMediaVideo("https://telegra.ph/file/b1367262cdfbcd0b2af07.mp4", has_spoiler=True),
@@ -122,7 +122,7 @@ async def autoapprove(client: Adisa, message: ChatJoinRequest):
         profile_path=photo,
     )
 
-    print(f"{user.first_name} Joined 🤝") 
+    print(f"{user.first_name} انضم 🤝") 
 
   
     await client.approve_chat_join_request(chat_id=chat.id, user_id=user.id)
