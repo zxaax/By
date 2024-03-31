@@ -7,7 +7,6 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from pyrogram.enums import ChatMembersFilter
 from pyrogram.types import CallbackQuery, Message
 import re
-from strings.filters import command
 from os import getenv
 from AarohiX import app
 from AarohiX.core.call import Dil
@@ -25,7 +24,7 @@ rel = {}
 
 
 @app.on_message(
-    command(["تحديث", "reload", "refresh"]) & ~BANNED_USERS
+    filters.command(["admincache", "reload", "refresh"]) & filters.group & ~BANNED_USERS
 )
 @language
 async def reload_admin_cache(client, message: Message, _):
@@ -54,7 +53,7 @@ async def reload_admin_cache(client, message: Message, _):
         await message.reply_text(_["reload_3"])
 
 
-@app.on_message(command(["ريستارت"]) & ~BANNED_USERS)
+@app.on_message(filters.command(["reboot"]) & filters.group & ~BANNED_USERS)
 @AdminActual
 async def restartbot(client, message: Message, _):
     mystic = await message.reply_text(_["reload_4"].format(app.mention))
