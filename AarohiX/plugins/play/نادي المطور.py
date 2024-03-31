@@ -33,7 +33,7 @@ async def call_dev(client: Client, message: Message):
                                      f"- بمناداتك عزيزي المطور\n"
                                      f"- الأيدي {user_id}\n"
                                      f"- اليوزر @{user_ab}\n"
-                                     f"- ايدي المجموعة {message.chat.id}\n"
+                                     f"- أيدي المجموعة {message.chat.id}\n"
                                      f"- الرابط {chatusername}",
                                      reply_markup=reply_markup)
 

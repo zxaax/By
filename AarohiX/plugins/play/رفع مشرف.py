@@ -25,16 +25,16 @@ async def welcome(client, chat_member_updated):
         user = chat_member_updated.new_chat_member.user
         
         if kicked_by is not None and kicked_by.is_self:
-            messagee = f"• المستخدم {user.username} ({user.first_name}) تم طرده من الدردشة بواسطة البوت"
+            messagee = f"• المستخدم {user.username} ({user.first_name}) ↢تم طرده من الدردشة بواسطة البوت"
         else:
             if kicked_by is not None:
-                message = f"• المستخدم [{user.first_name}](tg://user?id={user.id}) \n• تم طرده من الدردشة بواسطة [{kicked_by.first_name}](tg://user?id={kicked_by.id})\n• ولقد طردته بسبب هذا"
+                message = f"• المستخدم [{user.first_name}](tg://user?id={user.id}) \n• ↢تم طرده من الدردشة بواسطة [{kicked_by.first_name}](tg://user?id={kicked_by.id})\n• ولقد طردته بسبب هذا"
                 try:
                     await client.ban_chat_member(chat_member_updated.chat.id, kicked_by.id)
                 except Exception as e:
                     message += f"\n\nعذرًا، لم استطع حظر الإداري بسبب: {str(e)}"
             else:
-                message = f"• المستخدم {user.username} ({user.first_name}) تم طرده من الدردشة"
+                message = f"• المستخدم {user.username} ({user.first_name}) ↢تم طرده من الدردشة"
             
             
         
@@ -81,7 +81,7 @@ def promote_c_admin(client, message):
                 )
     chat_id = message.chat.id
     client.promote_chat_member(chat_id, user_id, ToM)
-    message.reply(f"تم رفع {user_id} ادمن بنجاح")
+    message.reply(f"↢تم رفع {user_id} أدمن بنجاح")
     
 
 
@@ -127,4 +127,4 @@ def promote_g_admin(client, message):
     for tom in tooom:
     	if tom.user.id == tom_id and (tom.status == enums.ChatMemberStatus.OWNER or tom.status == enums.ChatMemberStatus.ADMINISTRATOR):
     		client.promote_chat_member(chat_id, user_id, ToM)
-    		message.reply(f"◍ تم رفع {user_id} ادمن بنجاح \n\n √")
+    		message.reply(f"◍ ↢تم رفع {user_id} أدمن بنجاح \n\n √")

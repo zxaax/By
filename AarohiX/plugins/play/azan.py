@@ -19,24 +19,24 @@ from pyrogram.errors import (
     UserNotParticipant,
 )
 
-tz = pytz.timezone('Africa/Cairo')
+tz = pytz.timezone('Asia/Amman')
 
 chat = []
 
 @app.on_message(filters.text & ~filters.private, group = 20)
 async def azaan(c, msg):
-  if msg.text == "تفعيل الاذان":
+  if msg.text == "تفعيل تنبيه الصلاة":
     if msg.chat.id in chat:
-      return await msg.reply_text("**تنبيه الأذان مفعل هنا من قبل 😊♥️**")
+      return await msg.reply_text("**⋙ الآذان مفعل من قبـل**")
     else:
       chat.append(msg.chat.id)
-      return await msg.reply_text("**تم تفعيل الاذان في هذه المحادثة بنجاح ♥️🌿**")
+      return await msg.reply_text("**⋙ أبشـر فعلت الآذان**")
   elif msg.text == "تعطيل الاذان":
     if msg.chat.id in chat:
       chat.remove(msg.chat.id)
-      return await msg.reply_text("**تم الغاء تفعيل الاذان في هذه المحادثة بنجاح ♥️🌿**")
+      return await msg.reply_text("**⋙ تم تعطيـل الآذان في هـذه المُحادثـة**")
     else:
-      return await msg.reply_text("**تنبيه الأذان لم يفعل هنا من قبل 😊♥️**")
+      return await msg.reply_text("**⋙ تنبيـه الآذان غير مُفعـل أصـلًا .**")
       
 async def kill():
   for i in chat:
@@ -59,7 +59,7 @@ async def play(i):
     except Exception as e:
        await app.send_message(i,f"{e}")
   except TelegramServerError:
-    await app.send_message(i,"في خطا ف سيرفرات التليجرام")
+    await app.send_message(i,"خطأ في سيرفرات التليجـرام")
   except AlreadyJoinedError:
     await kill()
     try:
@@ -76,7 +76,7 @@ async def play(i):
 
 def prayer_time():
    try:
-       prayer = requests.get(f"http://api.aladhan.com/timingsByAddress?address=Cairo&method=4&school=0")
+       prayer = requests.get(f"http://api.aladhan.com/timingsByAddress?address=Amman&method=4&school=0")
        prayer = prayer.json()
        fajr = datetime.strptime(prayer['data']['timings']['Fajr'], '%H:%M').strftime('%H:%M')
        dhuhr = datetime.strptime(prayer['data']['timings']['Dhuhr'], '%H:%M').strftime('%H:%M')
@@ -97,7 +97,7 @@ def prayer_time():
        asyncio.sleep(5)
        print(e)  
 #لالالالا
-# جتة مواعيد الصلاة الي تحت دي سارقها من هلال علشان م بعرف استخدم مكتبة ال time ف انضموا لقناته @SOURCEFR3ON
+#حقوق_هلال
 
 async def azkar():
   while not await asyncio.sleep(2):
@@ -105,9 +105,9 @@ async def azkar():
      prayer = prayer_time()
      await kill()
      for i in chat:
-       await app.send_message(i, f"**حان الان وقت اذان {prayer} بالتوقيت المحلي للقاهرة 🥰♥️**")
+       await app.send_message(i, f"**⋙ حـان الآن موعـد آذان {prayer) في الأردن 🕌**")
        await play(i)
      await asyncio.sleep(174)
      await kill()
-#مواعيد الصلاه بس الي سارقها بقيت الكود كتابتي هي اكيد كتابه معاقه بس عادي م مهم رايك انا مبسوط بيها يوزري للاعمال الخاصه @z0hary
+#@z0hary
      
