@@ -1,7 +1,7 @@
 {
-    "name": "احدث نسخة من سورس تيتو!!",
+    "name": "احدث نسخة من سورس تيبثون!!",
     "description": " يمكنك تشغيل الملفات الصوتية في مباشرتا في القنوات والمجموعات .",
-    "logo": "https://telegra.ph/file/7cc32655659b325cc0f53.jpg",
+    "logo": "https://telegra.ph/file/6078c07e175231642cf50.jpg",
     "keywords": [
     "python3",
     "telegram",
@@ -91,7 +91,7 @@
       },
       "UPSTREAM_REPO": {
         "description": "~  لاتغيرها أبدا .",
-        "value": "https://github.com/DevTeto/AFmusic",
+        "value": "https://github.com/RRYR7/TePthon",
         "required": true
       }
     },
