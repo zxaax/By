@@ -20,7 +20,7 @@ async def song(_, message: Message):
         await message.delete()
     except:
         pass
-    m = await message.reply_text("- يتم البحث الان .", quote=True)
+    m = await message.reply_text("↢انتظر...", quote=True)
 
     query = " ".join(str(i) for i in message.command[1:])
     ydl_opts = {"format": "bestaudio[ext=m4a]"}
@@ -50,7 +50,7 @@ async def song(_, message: Message):
         error_message = f"- فشل .\n\n**السبب :** `{ex}`"
         return await m.edit_text(error_message)
 
-    await m.edit_text("- تم الرفع انتضر قليلاً .")
+    await m.edit_text("↢ تم الرفع انتظر قليلًا")
 
     try:
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
@@ -58,7 +58,7 @@ async def song(_, message: Message):
             audio_file = ydl.prepare_filename(info_dict)
             ydl.process_info(info_dict)
 
-        rep = f"**- الأسم :** [{title[:23]}]({link})\n**- الوقت :** `{duration}`\n**- بواسطة  :** {message.from_user.first_name}"
+        rep = f"**- الاسم :** [{title[:23]}]({link})\n**- الوقت :** `{duration}`\n**- بواسطة  :** {message.from_user.first_name}"
 
         secmul, dur, dur_arr = 1, 0, duration.split(":")
         for i in range(len(dur_arr) - 1, -1, -1):
@@ -123,17 +123,17 @@ async def video_search(client, message):
     except Exception as e:
         print(e)
     try:
-        msg = await message.reply("- يتم البحث الان .")
+        msg = await message.reply("- يتم البحث الآن .")
         with yt_dlp.YoutubeDL(ydl_opts) as ytdl:
             ytdl_data = ytdl.extract_info(link, download=True)
             file_name = ytdl.prepare_filename(ytdl_data)
     except Exception as e:
-        return await msg.edit(f"🚫 **error:** {e}")
+        return await msg.edit(f"🚫 **خطأ:** {e}")
     thumb_path = f"thumb{title}.jpg"
     if not os.path.exists(thumb_path):
-        return await msg.edit(f"🚫 **error:** Thumb file not found!")
+        return await msg.edit(f"🚫 **خطأ:** Thumb file not found!")
     
-    await msg.edit("- تم الرفع انتضر قليلاً .")
+    await msg.edit("- تم الرفع انتظر قليلًا .")
     await message.reply_video(
         file_name,
         duration=int(ytdl_data["duration"]),
