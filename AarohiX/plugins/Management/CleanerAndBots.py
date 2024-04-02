@@ -15,7 +15,7 @@ stopProcess = False
 
 # ------------------------------------------------------------------------------- #
 
-@app.on_message(filters.command(["zombies","clean"]))
+@app.on_message(filters.command(["مسح الحسابات المحذوفة","تنظيف"]))
 async def remove(client, message):
   global stopProcess
   try: 
@@ -27,13 +27,13 @@ async def remove(client, message):
     if has_permissions:
       bot = await app.get_chat_member(message.chat.id, "self")
       if bot.status == ChatMemberStatus.MEMBER:
-        await message.reply("➠ | ɪ ɴᴇᴇᴅ ᴀᴅᴍɪɴ ᴘᴇʀᴍɪssɪᴏɴs ᴛᴏ ʀᴇᴍᴏᴠᴇ ᴅᴇʟᴇᴛᴇᴅ ᴀᴄᴄᴏᴜɴᴛs.")  
+        await message.reply("**↢ كيف أمسح الحسابات المحذوفة وما معي صلاحية حظر الأعضاء؟")  
       else:  
         if len(chatQueue) > 30 :
-          await message.reply("➠ | ɪ'ᴍ ᴀʟʀᴇᴀᴅʏ ᴡᴏʀᴋɪɴɢ ᴏɴ ᴍʏ ᴍᴀxɪᴍᴜᴍ ɴᴜᴍʙᴇʀ ᴏғ 30 ᴄʜᴀᴛs ᴀᴛ ᴛʜᴇ ᴍᴏᴍᴇɴᴛ. ᴘʟᴇᴀsᴇ ᴛʀʏ ᴀɢᴀɪɴ sʜᴏʀᴛʟʏ.")
+          await message.reply("↢ أنا مستعد للعمل، عيد المحاولة.")
         else:  
           if message.chat.id in chatQueue:
-            await message.reply("➠ | ᴛʜᴇʀᴇ's ᴀʟʀᴇᴀᴅʏ ᴀɴ ᴏɴɢɪɪɴɢ ᴘʀᴏᴄᴇss ɪɴ ᴛʜɪs ᴄʜᴀᴛ. ᴘʟᴇᴀsᴇ [ /stop ] ᴛᴏ sᴛᴀʀᴛ ᴀ ɴᴇᴡ ᴏɴᴇ.")
+            await message.reply("↢ التنظيف يجري بالفعل..")
           else:  
             chatQueue.append(message.chat.id)  
             deletedList = []
@@ -44,12 +44,12 @@ async def remove(client, message):
                 pass
             lenDeletedList = len(deletedList)  
             if lenDeletedList == 0:
-              await message.reply("⟳ | ɴᴏ ᴅᴇʟᴇᴛᴇᴅ ᴀᴄᴄᴏᴜɴᴛs ɪɴ ᴛʜɪs ᴄʜᴀᴛ.")
+              await message.reply("↢ما فيه حسابات محذوفة.")
               chatQueue.remove(message.chat.id)
             else:
               k = 0
               processTime = lenDeletedList*1
-              temp = await app.send_message(message.chat.id, f"🧭 | ᴛᴏᴛᴀʟ ᴏғ {lenDeletedList} ᴅᴇʟᴇᴛᴇᴅ ᴀᴄᴄᴏᴜɴᴛs ʜᴀs ʙᴇᴇɴ ᴅᴇᴛᴇᴄᴛᴇᴅ.\n🥀 | ᴇsᴛɪᴍᴀᴛᴇᴅ ᴛɪᴍᴇ: {processTime} sᴇᴄᴏɴᴅs ғʀᴏᴍ ɴᴏᴡ.")
+              temp = await app.send_message(message.chat.id, f"↢ عدد الحسابات المحذوفة {lenDeletedList} تم إزالة جميع الحسابات المحذوفة\n↢ الوقت المُستغرق : {processTime} ثانية.")
               if stopProcess: stopProcess = False
               while len(deletedList) > 0 and not stopProcess:   
                 deletedAccount = deletedList.pop(0)
@@ -60,21 +60,21 @@ async def remove(client, message):
                 k+=1
                 await asyncio.sleep(10)
               if k == lenDeletedList:  
-                await message.reply(f"✅ | sᴜᴄᴄᴇssғᴜʟʟʏ ʀᴇᴍᴏᴠᴇᴅ ᴀʟʟ ᴅᴇʟᴇᴛᴇᴅ ᴀᴄᴄɪᴜɴᴛs ғʀᴏᴍ ᴛʜɪs ᴄʜᴀᴛ.")  
+                await message.reply(f"**↢ تم حذف الحسابات المحذوفة.")  
                 await temp.delete()
               else:
-                await message.reply(f"✅ | sᴜᴄᴄᴇssғᴜʟʟʏ ʀᴇᴍᴏᴠᴇᴅ {k} ᴅᴇʟᴇᴛᴇᴅ ᴀᴄᴄᴏᴜɴᴛs ғʀᴏᴍ ᴛʜɪs ᴄʜᴀᴛ.")  
+                await message.reply(f"↢ تم حذف {k} حساب محذوف من هذه المجموعة")  
                 await temp.delete()  
               chatQueue.remove(message.chat.id)
     else:
-      await message.reply("👮🏻 | sᴏʀʀʏ, **ᴏɴʟʏ ᴀᴅᴍɪɴ** ᴄᴀɴ ᴇxᴇᴄᴜᴛᴇ ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ.")  
+      await message.reply("↢ ما يمديك تستخدم هالأمر أنت مو مُشرف")  
   except FloodWait as e:
     await asyncio.sleep(e.value)                               
         
 
 # ------------------------------------------------------------------------------- #
 
-@app.on_message(filters.command(["admins","staff"]))
+@app.on_message(filters.command(["الادمنية","الأدمنية"]))
 async def admins(client, message):
   try: 
     adminList = []
@@ -94,13 +94,13 @@ async def admins(client, message):
     try:
       owner = ownerList[0]
       if owner.username == None:
-        text2 += f"👑 ᴏᴡɴᴇʀ\n└ {owner.mention}\n\n👮🏻 ᴀᴅᴍɪɴs\n"
+        text2 += f"↢ المالك\n└ {owner.mention}\n\n↢ الأدمنية\n"
       else:
-        text2 += f"👑 ᴏᴡɴᴇʀ\n└ @{owner.username}\n\n👮🏻 ᴀᴅᴍɪɴs\n"
+        text2 += f"↢ المالك\n└ @{owner.username}\n\n↢ الأدمنية\n"
     except:
-      text2 += f"👑 ᴏᴡɴᴇʀ\n└ <i>Hidden</i>\n\n👮🏻 ᴀᴅᴍɪɴs\n"
+      text2 += f"↢المالك\n└ <i>Hidden</i>\n\n↢ الأدمنية\n"
     if len(adminList) == 0:
-      text2 += "└ <i>ᴀᴅᴍɪɴs ᴀʀᴇ ʜɪᴅᴅᴇɴ</i>"  
+      text2 += "└ <i>↢المشرفين المخفيين</i>"  
       await app.send_message(message.chat.id, text2)   
     else:  
       while len(adminList) > 1:
@@ -115,28 +115,28 @@ async def admins(client, message):
           text2 += f"└ {admin.mention}\n\n"
         else:
           text2 += f"└ @{admin.username}\n\n"
-      text2 += f"✅ | **ᴛᴏᴛᴀʟ ɴᴜᴍʙᴇʀ ᴏғ ᴀᴅᴍɪɴs**: {lenAdminList}"  
+      text2 += f"↢ عدد الأدمنيـة**: {lenAdminList}"  
       await app.send_message(message.chat.id, text2)           
   except FloodWait as e:
     await asyncio.sleep(e.value)       
 
 # ------------------------------------------------------------------------------- #
 
-@app.on_message(filters.command("bots"))
+@app.on_message(filters.command("البوتات"))
 async def bots(client, message):  
   try:    
     botList = []
     async for bot in app.get_chat_members(message.chat.id, filter=enums.ChatMembersFilter.BOTS):
       botList.append(bot.user)
     lenBotList = len(botList) 
-    text3  = f"**ʙᴏᴛ ʟɪsᴛ - {message.chat.title}**\n\n🤖 ʙᴏᴛs\n"
+    text3  = f"**↢ قائمة البوتات - {message.chat.title}**\n\n↢ البوتات\n"
     while len(botList) > 1:
       bot = botList.pop(0)
       text3 += f"├ @{bot.username}\n"    
     else:    
       bot = botList.pop(0)
       text3 += f"└ @{bot.username}\n\n"
-      text3 += f"✅ | *ᴛᴏᴛᴀʟ ɴᴜᴍʙᴇʀ ᴏғ ʙᴏᴛs**: {lenBotList}"  
+      text3 += f"↢ عدد البوتات : {lenBotList}"  
       await app.send_message(message.chat.id, text3)
   except FloodWait as e:
     await asyncio.sleep(e.value)
