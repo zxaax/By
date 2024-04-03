@@ -69,12 +69,12 @@ async def update_(client, message, _):
     )
     for info in repo.iter_commits(f"HEAD..origin/{config.UPSTREAM_BRANCH}"):
         updates += f"<b>~ #{info.count()}: <a href={REPO_}/commit/{info}>{info.summary}</a> Power By -> {info.author}</b>\n\t\t\t\t<b> - تنزيل التحديثات :</b> {ordinal(int(datetime.fromtimestamp(info.committed_date).strftime('%d')))} {datetime.fromtimestamp(info.committed_date).strftime('%b')}, {datetime.fromtimestamp(info.committed_date).strftime('%Y')}\n\n"
-    _update_response_ = "<b>⦿ جاري تحديث السورس </b>\n\n- يتم رفع التحديثات :\n\n<b><u>المطور : @WZAERE </u></b>\n\n"
+    _update_response_ = "<b>⦿ جاري تحديث السورس </b>\n\n- يتم رفع التحديثات :\n\n<b><u>المطور : @PPF22 </u></b>\n\n"
     _final_updates_ = _update_response_ + updates
     if len(_final_updates_) > 4096:
         url = await DilBin(updates)
         nrs = await response.edit(
-            f"<b>- جاري دفع التحديثات الجديدة الى السورس !</b>\n\n- التحديثات  \n\n<u><b>تحديث :</b></u>\n\n<a href={url}>اضغط هنا </a>"
+            f"<b>- جاري دفع التحديثات الجديدة إلى السورس !</b>\n\n- التحديثات  \n\n<u><b>تحديث :</b></u>\n\n<a href={url}>اضغط هنا </a>"
         )
     else:
         nrs = await response.edit(_final_updates_, disable_web_page_preview=True)
@@ -116,13 +116,13 @@ async def update_(client, message, _):
 
 @app.on_message(command(["اعادة تشغيل"]) & filters.user(OWNER_ID))
 async def restart_(_, message):
-    response = await message.reply_text("~ تتم الأن اعادة تشغيل السورس .")
+    response = await message.reply_text("~ تتم الآن إعادة تشغيل السورس .")
     ac_chats = await get_active_chats()
     for x in ac_chats:
         try:
             await app.send_message(
                 chat_id=int(x),
-                text=f"{app.mention} \n~ تم اعادة تشغيل البوت .",
+                text=f"{app.mention} \n~ تم إعادة تشغيل البوت .",
             )
             await remove_active_chat(x)
             await remove_active_video_chat(x)
@@ -136,7 +136,7 @@ async def restart_(_, message):
     except:
         pass
     await response.edit_text(
-        "~ جاري الأن التحديث ."
+        "~ جاري الآن التحديث ."
     )
     os.system(f"kill -9 {os.getpid()} && bash start")
     
