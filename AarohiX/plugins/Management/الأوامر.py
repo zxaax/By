@@ -11,10 +11,10 @@ from AarohiX import (Apple, Resso, SoundCloud, Spotify, Telegram, YouTube, app)
 )
 async def maker(client: Client, message: Message):
     await message.reply_photo(
-        photo=f"https://telegra.ph/file/4980eb521b9ccebee927f.jpg",
+        photo=f"https://te.legra.ph/file/e0e39b327dac30ee715dc.jpg",
         caption=f"""**- أوامر التشغيل اتبع مايلي
         
- [— — — — — — — — — —](https://telegra.ph/file/4980eb521b9ccebee927f.jpg)
+ [— — — — — — — — — —](https://te.legra.ph/file/e0e39b327dac30ee715dc.jpg)
 ◇︰ تشغيل أو شغل : لبدء تشغيل السورة أو الأنشودة الإسلامية
 
 ◇︰ بينج : لقياس سرعة النت في البوت .
@@ -49,7 +49,7 @@ async def maker(client: Client, message: Message):
 )
 async def maker(client: Client, message: Message):
     await message.reply_photo(
-        photo=f"https://telegra.ph/file/41a777f089288f7ad2571.jpg",
+        photo=f"https://te.legra.ph/file/e0e39b327dac30ee715dc.jpg",
         caption=f"""**
 - أوامر التفعيل اتبع ما يلي :
 
@@ -82,7 +82,7 @@ async def maker(client: Client, message: Message):
 )
 async def maker(client: Client, message: Message):
     await message.reply_photo(
-        photo=f"https://telegra.ph/file/4980eb521b9ccebee927f.jpg",
+        photo=f"https://te.legra.ph/file/e0e39b327dac30ee715dc.jpg",
         caption=f"""**
 -  أوامر إضافيـة :
  — — — — — — — — — — 
@@ -122,6 +122,8 @@ async def maker(client: Client, message: Message):
 - صورة ↫ لجلب صورة عشوائية
 
 - فحص مونجو ↫ فحص كود المونجو 
+
+- تلجراف ميديا ↢ لجلب رابط الصورة .
 
 — — — — — — — — — — — — — —**
 """,
