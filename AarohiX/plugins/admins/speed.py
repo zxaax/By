@@ -1,6 +1,6 @@
 from pyrogram import filters
 from pyrogram.types import Message
-
+from strings.filters import command
 from AarohiX import app
 from AarohiX.core.call import Dil
 from AarohiX.misc import SUDOERS, db
@@ -8,15 +8,11 @@ from AarohiX.utils import AdminRightsCheck
 from AarohiX.utils.database import is_active_chat, is_nonadmin_chat
 from AarohiX.utils.decorators.language import languageCB
 from AarohiX.utils.inline import close_markup, speed_markup
-from config import BANNED_USERS, adminlist
-
 checker = []
 
 
 @app.on_message(
-    filters.command(["cspeed", "speed", "cslow", "slow", "playback", "cplayback"])
-    & filters.group
-    & ~BANNED_USERS
+    command(["تقديم", "speed", "cslow", "slow", "playback", "cplayback"])
 )
 @AdminRightsCheck
 async def playback(cli, message: Message, _, chat_id):
@@ -36,7 +32,7 @@ async def playback(cli, message: Message, _, chat_id):
     )
 
 
-@app.on_callback_query(filters.regex("SpeedUP") & ~BANNED_USERS)
+@app.on_callback_query(filters.regex("SpeedUP"))
 @languageCB
 async def del_back_playlist(client, CallbackQuery, _):
     callback_data = CallbackQuery.data.strip()
