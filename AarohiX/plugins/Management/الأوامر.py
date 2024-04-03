@@ -44,7 +44,7 @@ async def maker(client: Client, message: Message):
     )
 
 @app.on_message(
-    command(["","أوامر التفعيل"])
+    command(["","اوامر التفعيل"])
     & filters.group
 )
 async def maker(client: Client, message: Message):
@@ -77,7 +77,7 @@ async def maker(client: Client, message: Message):
     )
 
 @app.on_message(
-    command(["",""])
+    command(["","اوامر اضافية"])
     & filters.group
 )
 async def maker(client: Client, message: Message):
