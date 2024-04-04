@@ -45,7 +45,7 @@ async def vgdg(client: Client, message: Message):
         
 
 array = []
-@app.on_message(command(["@all", "تاك","تاك للكل"]) & ~filters.private)
+@app.on_message(command(["@aنينيننيl", "تاكثننثنثنثنثننثنينثننثني","يننسنسنسيننينيننيتيليتيتثتتي"]) & ~filters.private)
 async def nummmm(client: app, message):
   if message.chat.id in array:
      return await message.reply_text("**↢ التاك شغال يا حلو 🤍 ،**")
@@ -62,7 +62,7 @@ async def nummmm(client: app, message):
           photo = await client.download_media(photo_id)
           zz = message.caption
   try:
-   zz = zz.replace("@all","").replace("تاك","").replace("نادي الكل","")
+   zz = zz.replace("@alثثثثl","").replace("تثثثثاك","").replace("نادي الكل","")
   except:
     pass
   array.append(message.chat.id)
