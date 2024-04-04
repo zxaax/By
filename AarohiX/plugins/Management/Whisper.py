@@ -8,7 +8,7 @@ from pyrogram.types import (
 
 whisper_db = {}
 
-switch_btn = InlineKeyboardMarkup([[InlineKeyboardButton("●ᥫᩣ Sᴛᴀʀᴛ Wʜɪsᴘᴇʀ", switch_inline_query_current_chat="")]])
+switch_btn = InlineKeyboardMarkup([[InlineKeyboardButton("ابدأ بالهمس", switch_inline_query_current_chat="")]])
 
 async def _whisper(_, inline_query):
     data = inline_query.query
@@ -17,9 +17,9 @@ async def _whisper(_, inline_query):
     if len(data.split()) < 2:
         mm = [
             InlineQueryResultArticle(
-                title="⦿ Wʜɪsᴘᴇʀ ⦿",
+                title="↢ همسـة",
                 description=f"@{BOT_USERNAME} [ USERNAME | ID ] [ TEXT ]",
-                input_message_content=InputTextMessageContent(f"⦿ Usᴀɢᴇ:\n\n@{BOT_USERNAME} [ USERNAME | ID ] [ TEXT ]"),
+                input_message_content=InputTextMessageContent(f"↢ الاستخدام :\n\n@{BOT_USERNAME} [ الاسم المستخدم | الأيدي ] [ النص ]"),
                 thumb_url="https://te.legra.ph/file/70872d57cab08aa096a04.jpg",
                 reply_markup=switch_btn
             )
@@ -35,9 +35,9 @@ async def _whisper(_, inline_query):
             
             mm = [
                 InlineQueryResultArticle(
-                    title="⦿ Wʜɪsᴘᴇʀ ⦿",
-                    description=f"Sᴇɴᴅ A Wʜɪsᴘᴇʀ Tᴏ {user.first_name}!",
-                    input_message_content=InputTextMessageContent(f"⦿ Yᴏᴜ Aʀᴇ Sᴇɴᴅɪɴɢ A Wʜɪsᴘᴇʀ Tᴏ {user.first_name}.\n\nTʏᴘᴇ Uʀ Mᴇssᴀɢᴇ/Sᴇɴᴛᴇɴᴄᴇ."),
+                    title="همسـة",
+                    description=f" {user.first_name}!",
+                    input_message_content=InputTextMessageContent(f"↢أرسلت همسة لـ {user.first_name}.\n\n اكتب رسالتك/Sᴇɴᴛᴇɴᴄᴇ."),
                     thumb_url="https://te.legra.ph/file/70872d57cab08aa096a04.jpg",
                     reply_markup=whisper_btn
                 ),
@@ -56,7 +56,7 @@ async def _whisper(_, inline_query):
                 InlineQueryResultArticle(
                     title="⦿ Wʜɪsᴘᴇʀ ⦿",
                     description="Iɴᴠᴀʟɪᴅ Usᴇʀɴᴀᴍᴇ ᴏʀ Iᴅ!",
-                    input_message_content=InputTextMessageContent("ɪɴᴠᴀʟɪᴅ Usᴇʀɴᴀᴍᴇ ᴏʀ Iᴅ!"),
+                    input_message_content=InputTextMessageContent("معرف أو أيدي غير صالح!"),
                     thumb_url="https://te.legra.ph/file/70872d57cab08aa096a04.jpg",
                     reply_markup=switch_btn
                 )
@@ -67,7 +67,7 @@ async def _whisper(_, inline_query):
 
 
 
-@bot.on_callback_query(filters.regex(pattern=r"fdaywhisper_(.*)"))
+@bot.on_callback_query(filters.regex(pattern=r"همسة_(.*)"))
 async def whispes_cb(_, query):
     data = query.data.split("_")
     from_user = int(data[1])
@@ -80,14 +80,14 @@ async def whispes_cb(_, query):
         except Unauthorized:
             pass
         
-        return await query.answer("Tʜɪs Wʜɪsᴘᴇʀ Is Nᴏᴛ Fᴏʀ Yᴏᴜ 𖣘︎", show_alert=True)
+        return await query.answer("الهمسة ليست لك 𖣘︎", show_alert=True)
     
     search_msg = f"{from_user}_{to_user}"
     
     try:
         msg = whisper_db[search_msg]
     except:
-        msg = "𖣘︎ Eʀʀᴏʀ!\n\nWʜɪsᴘᴇʀ Hᴀs Bᴇᴇɴ Dᴇʟᴇᴛᴇᴅ Fʀᴏᴍ Tʜᴇ Dᴀᴛᴀʙᴀsᴇ!"
+        msg = "𖣘︎ خطأ!\n\nهمستك محذوفة من قاعدة البيانات!"
     
     SWITCH = InlineKeyboardMarkup([[InlineKeyboardButton("Gᴏ Iɴʟɪɴᴇ ➻", switch_inline_query_current_chat="")]])
     
@@ -95,15 +95,15 @@ async def whispes_cb(_, query):
     
     if len(data) > 3 and data[3] == "one":
         if user_id == to_user:
-            await query.edit_message_text("➤ Wʜɪsᴘᴇʀ Hᴀs Bᴇᴇɴ Rᴇᴀᴅ!\n\nPʀᴇss Tʜᴇ Bᴜᴛᴛᴏɴ Bᴇʟᴏᴡ Tᴏ Sᴇɴᴅ A Wʜɪsᴘᴇʀ!", reply_markup=SWITCH)
+            await query.edit_message_text("➤ تمت قراءة الهمسة!\n\nاضغط على الزر أدناه لإرسال همسة!", reply_markup=SWITCH)
 
 
 async def in_help():
     answers = [
         InlineQueryResultArticle(
-            title="⦿ Whisper ⦿",
+            title="⦿ همسـة ⦿",
             description=f"@Alone_Dil_bot [USERNAME | ID] [TEXT]",
-            input_message_content=InputTextMessageContent(f"**❍ Usage:**\n\n@Alone_Dil_bot (Target Username or ID) (Your Message).\n\n**Example:**\n@Alone_Dil_bot @username I Wanna Phuck You"),
+            input_message_content=InputTextMessageContent(f"**الاستخدام :**\n\n@Alone_Dil_bot (Target Username or ID) (Your Message).\n\n**Example:**\n@Alone_Dil_bot @username I Wanna Phuck You"),
             thumb_url="https://te.legra.ph/file/70872d57cab08aa096a04.jpg",
             reply_markup=switch_btn
         )
