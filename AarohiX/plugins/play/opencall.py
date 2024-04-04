@@ -41,9 +41,9 @@ async def start_group_call(c: Client, m: Message):
     ass = await assistant.get_me()
     assid = ass.id
     if assistant is None:
-        await app.send_message(chat_id, "◍ اعتقد فيه مشكله انتظر \n\n √")
+        await app.send_message(chat_id, "↢ فيه مشكلة، اصبر")
         return
-    msg = await app.send_message(chat_id, "◍ جاري الان تشغيل المحادثه الصوتيه \n\n √")
+    msg = await app.send_message(chat_id, "↢ جاري تشغيل المحادثة الصوتية الآن **ملاحظة** : يجب أن تكون رافع الحساب المُساعد مشرف")
     try:
         peer = await assistant.resolve_peer(chat_id)
         await assistant.invoke(
@@ -55,7 +55,7 @@ async def start_group_call(c: Client, m: Message):
                 random_id=assistant.rnd_id() // 9000000000,
             )
         )
-        await msg.edit_text("◍ تم فتح المحادثه الصوتيه \n\n √")
+        await msg.edit_text("↢ تم فتح المحادثة الصوتية")
     except ChatAdminRequired:
       try:    
         await app.promote_chat_member(chat_id, assid, privileges=ChatPrivileges(
@@ -90,9 +90,9 @@ async def start_group_call(c: Client, m: Message):
             can_promote_members=False,
             ),
         )                              
-        await msg.edit_text("◍ تم فتح المحادثه الصوتيه \n\n √")
+        await msg.edit_text("↢ تم تشغيل المحادثة الصوتية")
       except:
-         await msg.edit_text("◍ يجب ان يكون صلاحيات البوت كامله مع المساعد \n\n √")
+         await msg.edit_text("↢ يجب أن يكونا البوت والمساعد يمتلكان الصلاحيات الكاملة .")
 @app.on_message(filters.regex("^اقفل الكول$"))
 async def stop_group_call(c: Client, m: Message):
     chat_id = m.chat.id
@@ -100,18 +100,18 @@ async def stop_group_call(c: Client, m: Message):
     ass = await assistant.get_me()
     assid = ass.id
     if assistant is None:
-        await app.send_message(chat_id, "◍ اعتقد فيه مشكله انتظر \n\n √")
+        await app.send_message(chat_id, "↢ فيه مشكلة، انتظر")
         return
-    msg = await app.send_message(chat_id, "◍ تم قفل المحادثه الصوتيه \n\n √")
+    msg = await app.send_message(chat_id, "↢ تم قفل المحادثة الصوتية .")
     try:
         if not (
            group_call := (
-               await get_group_call(assistant, m, err_msg=", group call already ended")
+               await get_group_call(assistant, m, err_msg=", المحادثة الصوتية مقفولة أصلًا")
            )
         ):  
            return
         await assistant.invoke(DiscardGroupCall(call=group_call))
-        await msg.edit_text("◍ تم قفل المحادثه الصوتيه \n\n √")
+        await msg.edit_text("↢ تم قفل المحادثة الصوتية .")
     except Exception as e:
       if "GROUPCALL_FORBIDDEN" in str(e):
        try:    
