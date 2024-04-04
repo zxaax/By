@@ -3,16 +3,19 @@ import os
 import time
 import requests
 import aiohttp
-from strings.filters import command
 from pyrogram import filters
 from pyrogram import Client
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, ReplyKeyboardMarkup
+from strings.filters import command
 from AarohiX import (Apple, Resso, SoundCloud, Spotify, Telegram, YouTube, app)
 from AarohiX import app
 from asyncio import gather
 from pyrogram.errors import FloodWait
 
-@app.on_message(command(["المالك", "صاحب الجروب", "المنشئ"]) & filters.group)
+
+
+
+@app.on_message(command(["المالك", "صاحب الخرابه", "المنشئ"]) & filters.group)
 async def gak_owne(client: Client, message: Message):
       if len(message.command) >= 2:
          return 
@@ -45,12 +48,12 @@ array = []
 @app.on_message(command(["@all", "تاك","تاك للكل"]) & ~filters.private)
 async def nummmm(client: app, message):
   if message.chat.id in array:
-     return await message.reply_text("**التاك قيد التشغيل حاليًا ،**")
+     return await message.reply_text("**↢ التاك شغال يا حلو 🤍 ،**")
   chek = await client.get_chat_member(message.chat.id, message.from_user.id)
   if not chek.status in ["administrator", "creator"]:
-    await message.reply("**يجب أن تكون مشرف لاستخدام الأمر 🖱️**")
+    await message.reply("**↢ وخر لازم تكون مشرف عشان تستخدم الأمر هذا**")
     return
-  await message.reply_text("**جاري بدأ المنشن، لإيقاف الأمر اضغط **\n /cancel او اكتب بس منشن")
+  await message.reply_text("**جاري بدأ المنشن، لإيقاف الامر اضغط **\n /cancel او اكتب بس منشن")
   i = 0
   txt = ""
   zz = message.text
@@ -92,14 +95,14 @@ async def nummmm(client: app, message):
 async def stop(client, message):
   chek = await client.get_chat_member(message.chat.id, message.from_user.id)
   if not chek.status in ["administrator", "creator"]:
-    await message.reply("**يجب أن تكون مشرف لاستخدام الأمر 🖱️")
+    await message.reply("**↢ وخر لازم تكون مشرف عشان تستخدم الأمر هذا")
     return
   if message.chat.id not in array:
      await message.reply("**المنشن متوقف بالفعل**")
      return 
   if message.chat.id in array:
     array.remove(message.chat.id)
-    await message.reply("**تم إيقاف المنشن بنجاح✅**")
+    await message.reply("**↢وقفت المنشن✅**")
     return
 
 
