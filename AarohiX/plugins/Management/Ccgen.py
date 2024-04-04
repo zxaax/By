@@ -4,34 +4,34 @@ from pyrogram import filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 api = SafoneAPI()
 
-@app.on_message(filters.command(["gen", "ccgen"], [".", "!", "/"]))
+@app.on_message(filters.command(["استخراج فيزا", "فيزا"], [".", "!", "/", " "]))
 async def gen_cc(client, message):
     if len(message.command) < 2:
-        return await message.reply_text("Please Give Me a Bin To\nGenerate Cc ...")
+        return await message.reply_text("↢ دزلي البين مع الأمر..")
 
     try:
         await message.delete()
     except:
         pass
 
-    aux = await message.reply_text("Generating ...")
+    aux = await message.reply_text("جاري الاستخراج ...")
     bin = message.text.split(None, 1)[1]
 
     if len(bin) < 6:
-        return await aux.edit("❌ Wrong Bin❗...")
+        return await aux.edit("بين خاطئ...")
 
     try:
         resp = await api.ccgen(bin, 10)
         cards = resp.liveCC
 
         regenerate_button = InlineKeyboardButton(
-            "√ʀᴇɢᴇɴᴇʀᴀᴛᴇ¹", callback_data=f"regenerate_{bin}"
+            "إعادة الاستخراج¹", callback_data=f"regenerate_{bin}"
         )
         keyboard = InlineKeyboardMarkup([[regenerate_button]])
 
         await aux.edit(
             f"""
-➤ Sᴏᴍᴇ Lɪᴠᴇ Gᴇɴᴇʀᴀᴛᴇᴅ Cᴄ ➻
+↢بعض الفيزات المفحوصـة ✅ :
 
 ╭✠╼━━━━━━❖━━━━━━━✠╮ 
 
@@ -41,13 +41,13 @@ async def gen_cc(client, message):
 {cards[9]}\n
 ╰✠╼━━━━━━❖━━━━━━━✠╯
 
-⦿ Bɪɴ: `{resp.results[0].bin}`
-⦿ Tɪᴍᴇ Tᴏᴏᴋ: {resp.took}\n\n @Alone_Dil_bot""",
+⦿ البين : `{resp.results[0].bin}`
+⦿ مدة الاستخراج : {resp.took}\n\n @Tepthon""",
             reply_markup=keyboard,
         )
 
     except Exception as e:
-        return await aux.edit(f"Error: {e}.")
+        return await aux.edit(f"خطأ: {e}.")
 
 @app.on_callback_query(filters.regex(r"regenerate_"))
 async def regenerate_cc(client, callback_query):
@@ -59,7 +59,7 @@ async def regenerate_cc(client, callback_query):
 
         await callback_query.edit_message_text(
             f"""
-➤ Sᴏᴍᴇ Lɪᴠᴇ Gᴇɴᴇʀᴀᴛᴇᴅ Cᴄ ➻
+↢بعض الفيزات المفحوصـة ✅ :
 
 ╭✠╼━━━━━━❖━━━━━━━✠╮ 
 
@@ -69,9 +69,10 @@ async def regenerate_cc(client, callback_query):
 {cards[9]}\n
 ╰✠╼━━━━━━❖━━━━━━━✠╯
 
-⦿ Bɪɴ: `{resp.results[0].bin}`
-⦿ Tɪᴍᴇ Tᴏᴏᴋ: {resp.took}\n\n @Alone_Dil_bot""",
+⦿ البين : `{resp.results[0].bin}`
+⦿ مدة الاستخراج : {resp.took}\n\n @Tepthon""",
         )
 
     except Exception as e:
         await callback_query.edit_message_text(f"Error: {e}.")
+    
