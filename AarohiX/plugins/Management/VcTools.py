@@ -7,12 +7,12 @@ from config import OWNER_ID
 
 @app.on_message(filters.video_chat_started)
 async def brah(_, msg):
-       await msg.reply("◍ تم فتح المحادثه الصوتية ❄ \n\n √")
+       await msg.reply("↢ تم فتح المحادثة الصوتية")
 
 
 @app.on_message(filters.video_chat_ended)
 async def brah2(_, msg):
-       await msg.reply("**◍ تم إنهـاء المحادثه الصوتية 🥺 \n\n √**")
+       await msg.reply("**↢ تم إنهاء المحادثة الصوتية**")
 
 
 @app.on_message(filters.video_chat_members_invited)
