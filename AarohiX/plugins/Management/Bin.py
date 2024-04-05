@@ -9,25 +9,25 @@ api = SafoneAPI()
 async def check_ccbin(client, message):
     if len(message.command) < 2:
         return await message.reply_text(
-            "<b>Please Give Me a Bin To\nGet Bin Details !</b>"
+            "<b>↢ وين البين كيف أجيبلك معلوماته وما أعرف شو البين؟</b>"
         )
     try:
         await message.delete()
     except:
         pass
-    aux = await message.reply_text("<b>Checking ...</b>")
+    aux = await message.reply_text("<b>جاري التحقق ...</b>")
     bin = message.text.split(None, 1)[1]
     if len(bin) < 6:
-        return await aux.edit("<b>❌ Wrong Bin❗...</b>")
+        return await aux.edit("<b>❌ بين خاطئ❗...</b>")
     try:
         resp = await api.bininfo(bin)
         await aux.edit(f"""
-<b> ᴠᴀʟɪᴅ ✃ </b>
+<b> صالح ✃ </b>
 
 <b>🏦 ʙᴀɴᴋ➪</b> <tt>{resp.bank}</tt>
 <b>💳 ʙɪɴ➪</b> <tt>{resp.bin}</tt>
 <b>🏡 ᴄɴ➪</b> <tt>{resp.country}</tt>
-<b>🇮🇳 ғʟᴀɢ➪</b> <tt>{resp.flag}</tt>
+<b>🌐 ғʟᴀɢ➪</b> <tt>{resp.flag}</tt>
 <b>🧿 ɪsᴏ➪</b> <tt>{resp.iso}</tt>
 <b>⏳ ʟᴇᴠᴇʟ➪</b> <tt>{resp.level}</tt>
 <b>🔴 ᴘʀᴇᴘᴀɪᴅ➪</b> <tt>{resp.prepaid}</tt>
@@ -36,4 +36,4 @@ async def check_ccbin(client, message):
         )
     except:
         return await aux.edit(f"""
-🚫 BIN not recognized. Please enter a valid BIN.""")
+🚫 لم يتم التعرف على بن. الرجاء إدخال رقم تعريف شخصي صالح.""")
