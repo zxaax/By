@@ -31,12 +31,10 @@ async def mmmezat(client, message):
 async def mira(client: Client, message: Message):
     m_reply = await message.reply_text(f"ID chat** [`{message.chat.id}`]")
     await m_reply_text("")
+                   ),
                 ],
-
             ]
-
         ),
-
     )
 
 
