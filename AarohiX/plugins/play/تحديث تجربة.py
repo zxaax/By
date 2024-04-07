@@ -2,7 +2,7 @@ import asyncio
 import pyrogram
 from pyrogram import Client, filters
 from AarohiX import settingsApp
-from strings import get_command
+from strings import commamad
 from strings.filters import command
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 from AarohiX import (Apple, Resso, SoundCloud, Spotify, Telegram, YouTube, app)
