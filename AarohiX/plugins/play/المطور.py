@@ -27,17 +27,6 @@ async def mmmezat(client, message):
     )
 
 
-@app.on_message(filters.command("ايدي المجموعة", ["", "."]) & ~filters.edited)
-async def mira(client: Client, message: Message):
-    m_reply = await message.reply_text(f"ID chat** [`{message.chat.id}`]")
-    await m_reply_text("")
-                   ),
-                ],
-            ]
-        ),
-    )
-
-
 @app.on_message(filters.regex("^المطور$") & filters.group & ~filters.edited)
 async def aboutd5ev(client: Client, message: Message):
     usr = await client.get_chat(1260465030)
