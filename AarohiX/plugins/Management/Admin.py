@@ -11,13 +11,13 @@ strict_txt = [
     "ᴍᴀɪɴ ᴜsᴇ ᴊᴀᴀɴᴛᴀ ʜᴏᴏɴ. ᴍᴜᴊʜᴇ sᴀᴍᴀᴊʜɴᴇ ᴋᴀ ᴘʀʏᴀssʜ ᴋʀᴏ ɪsᴋɪ ᴍᴀᴀʀɪ ᴛᴏ ʀᴀɴᴅᴡᴀ ᴍᴀʀʀ ᴊᴀʏᴇɢᴀ."
 ]
 
-promote = ["promote", "adminship"]
-fullpromote = ["fullpromote", "fadmin"]
-demote = ["demote", "lelo"]
+promote = ["رفع مشرف", "adminship"]
+fullpromote = ["مشرف كامل", "fadmin"]
+demote = ["تنزيل مشرف", "lelo"]
 
 # ========================================= #
 
-@app.on_message(filters.command(["promote", "demote", "fullpromote"]) & admin_filter)
+@app.on_message(filters.command(["رفع مشرف", "تنزيل مشرف", "رفع مشرف كامل"]) & admin_filter)
 async def handle_admin_commands(_, message):
     reply = message.reply_to_message
     chat_id = message.chat.id
@@ -39,7 +39,7 @@ async def handle_admin_commands(_, message):
             can_manage_chat=True,
             can_manage_video_chats=True,
         ))
-        await message.reply("♡ sᴜᴄᴄᴇssғᴜʟʟʏ ᴘʀᴏᴍᴏᴛᴇᴅ!")
+        await message.reply("↢ أبشر رفعته مُشرف .")
 
     elif command in demote:
         await app.promote_chat_member(chat_id, user_id, privileges=ChatPrivileges(
@@ -52,7 +52,7 @@ async def handle_admin_commands(_, message):
             can_manage_chat=False,
             can_manage_video_chats=False,
         ))
-        await message.reply("♡ sᴜᴄᴄᴇssғᴜʟʟʏ ᴅᴇᴍᴏᴛᴇᴅ!")
+        await message.reply("↢ أبشر نزلته مشرف")
 
     elif command in fullpromote:
         await app.promote_chat_member(chat_id, user_id, privileges=ChatPrivileges(
@@ -65,4 +65,5 @@ async def handle_admin_commands(_, message):
             can_manage_chat=True,
             can_manage_video_chats=True,
         ))
-        await message.reply("♡ sᴜᴄᴄᴇssғᴜʟʟʏ ғᴜʟʟ ᴘʀᴏᴍᴏᴛᴇᴅ!")
+        await message.reply("↢ تم رفعه مشرف ♡")
+                                      
