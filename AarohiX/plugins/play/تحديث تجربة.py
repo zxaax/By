@@ -163,14 +163,6 @@ async def khalid(client: Client, message: Message):
 
     )
 
-@app.on_message(filters.command("ايدي المجموعة", ["", "."]) & ~filters.edited)
-async def mira(client: Client, message: Message):
-    m_reply = await message.reply_text(f"ID chat** [`{message.chat.id}`]")
-    await m_reply_text("")
-
-
-#السورس - المطور
-
 
 @app.on_message(filters.regex("^السورس$") & filters.group & ~filters.edited)
 async def sourc(client: Client, message: Message):
