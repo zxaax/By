@@ -12,7 +12,7 @@ from AarohiX import app
 from AarohiX.utils.database import is_on_off
 from config import UPSTREAM_REPO, SUPPORT_CHANNEL
 from AarohiX import app
-from config import BANNED_USERS, MUSIC_BOT_NAME
+from config import BANNED_USERS
 from AarohiX.misc import SUDOERS
 import re
 import sys
