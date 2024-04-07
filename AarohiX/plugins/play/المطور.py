@@ -25,22 +25,3 @@ async def mmmezat(client, message):
             ]
         ),
     )
-
-
-@app.on_message(filters.regex("^المطور$") & filters.group & ~filters.edited)
-async def aboutd5ev(client: Client, message: Message):
-    usr = await client.get_chat(1260465030)
-    name = usr.first_name
-    bio = (await client.get_chat(1260465030)).bio
-    async for photo in client.iter_profile_photos(1260465030, limit=1):
-                    await message.reply_photo(photo.file_id, caption=f"""- 𝑫𝒆𝒗𝒆𝒍𝒐𝒑𝒆𝒓 𝑻𝒐 𝑩𝒐𝒕 -› @PPF22\n\n- 𝑫𝒆𝒗𝒆𝒍𝒐𝒑𝒆𝒓'𝒔 𝑩𝒊𝒐 -› {bio}""", 
-        reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton(
-                        name, user_id=1260465030)
-                    ),
-                ],
-            ]
-        ),
-    )
