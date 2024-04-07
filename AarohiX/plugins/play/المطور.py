@@ -31,30 +31,27 @@ async def mmmezat(client, message):
 async def mira(client: Client, message: Message):
     m_reply = await message.reply_text(f"ID chat** [`{message.chat.id}`]")
     await m_reply_text("")
-    ),
                 ],
+
             ]
+
         ),
-)
+
+    )
 
 
-@app.on_message(
-    command(["lbshshshhs", "السوhhdhdhhddhhdhرس", "shshhshsgsggshsg"])
-)
-async def maker(client: Client, message: Message):
-    await message.reply_photo(
-        photo="https://telegra.ph/file/3c4a1eb0ceac848e26bc8.jpg",
-        caption="• Name Bot ↦ فهد \n ━━━━━━━━━━━━ \n • Dev ↦  مُحمـد 🇵🇸. \n • Bio ↦ أشعر بالفخر لأني مسلم، ولغـتي اللغـة العربيـة 🕌 - @Tepthon ، @PPYNY #فلسطين_حُرة 🇵🇸 .",
+@app.on_message(filters.regex("^المطور$") & filters.group & ~filters.edited)
+async def aboutd5ev(client: Client, message: Message):
+    usr = await client.get_chat(1260465030)
+    name = usr.first_name
+    bio = (await client.get_chat(1260465030)).bio
+    async for photo in client.iter_profile_photos(1260465030, limit=1):
+                    await message.reply_photo(photo.file_id, caption=f"""- 𝑫𝒆𝒗𝒆𝒍𝒐𝒑𝒆𝒓 𝑻𝒐 𝑩𝒐𝒕 -› @PPF22\n\n- 𝑫𝒆𝒗𝒆𝒍𝒐𝒑𝒆𝒓'𝒔 𝑩𝒊𝒐 -› {bio}""", 
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "مُحمـد 🇵🇸", url=f"tg://openmessage?user_id={config.OWNER_ID}"
-                    ),
-                ],
-                [
-                    InlineKeyboardButton(
-                        " تحديثـات فهد 🇵🇸🤍 .", url=config.SUPPORT_CHAT
+                        name, user_id=1260465030)
                     ),
                 ],
             ]
