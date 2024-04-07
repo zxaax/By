@@ -10,7 +10,7 @@ from pyrogram.types import InlineKeyboardButton
 from config import LOGGER_ID
 from AarohiX import app
 from AarohiX.utils.database import is_on_off
-from config import GITHUB_REPO, SUPPORT_CHANNEL, SUPPORT_GROUP
+from config import UPSTREAM_REPO, SUPPORT_CHANNEL, SUPPORT_GROUP
 from AarohiX import app
 from config import BANNED_USERS, MUSIC_BOT_NAME
 from AarohiX.misc import SUDOERS
