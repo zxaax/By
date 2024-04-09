@@ -90,7 +90,7 @@ async def admins(client, message):
       else:
         pass   
     lenAdminList= len(ownerList) + len(adminList)  
-    text2 = f"**ɢʀᴏᴜᴘ sᴛᴀғғ - {message.chat.title}**\n\n"
+    text2 = f"**طاقم المجموعة - {message.chat.title}**\n\n"
     try:
       owner = ownerList[0]
       if owner.username == None:
