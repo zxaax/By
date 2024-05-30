@@ -37,8 +37,10 @@ spotipy
 telegraph
 tgcrypto
 unidecode
-yt-dlp==2023.12.30
 youtube-search
 youtube-search-python
 wget
 kvsqlite 
+git+https://github.com/yt-dlp/yt-dlp@master
+git+https://github.com/alexmercerind/youtube-search-python@main
+git+https://github.com/joetats/youtube_search@master
