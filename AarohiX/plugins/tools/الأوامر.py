@@ -9,7 +9,9 @@ from AarohiX import app
 from AarohiX.misc import HAPP, SUDOERS, XCB
 from config import OWNER_ID
                                        
-                                       
+@app.on_message(
+    command("الاوامر")
+)                                       
 @app.on_callback_query(filters.regex("zzzback"))
 async def zzzback(_, query: CallbackQuery):
    await query.edit_message_text(
