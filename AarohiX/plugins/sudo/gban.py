@@ -20,7 +20,7 @@ from AarohiX.utils.extraction import extract_user
 from config import BANNED_USERS
 
 
-@app.on_message(filters.command(["gban", "globalban"]) & SUDOERS)
+@app.on_message(filters.command(["احظره عام", "حظر عام"]) & SUDOERS)
 @language
 async def global_ban(client, message: Message, _):
     if not message.reply_to_message:
@@ -68,7 +68,7 @@ async def global_ban(client, message: Message, _):
     await mystic.delete()
 
 
-@app.on_message(filters.command(["ungban"]) & SUDOERS)
+@app.on_message(filters.command(["الغاء الحظر العام"]) & SUDOERS)
 @language
 async def global_un(client, message: Message, _):
     if not message.reply_to_message:
@@ -100,7 +100,7 @@ async def global_un(client, message: Message, _):
     await mystic.delete()
 
 
-@app.on_message(filters.command(["gbannedusers", "gbanlist"]) & SUDOERS)
+@app.on_message(filters.command(["المحظورين عام", "المبلكين"]) & SUDOERS)
 @language
 async def gbanned_list(client, message: Message, _):
     counts = await get_banned_count()
@@ -115,9 +115,9 @@ async def gbanned_list(client, message: Message, _):
         try:
             user = await app.get_users(user_id)
             user = user.first_name if not user.mention else user.mention
-            msg += f"{count}➤ {user}\n"
+            msg += f"{count} ⟹ {user}\n"
         except Exception:
-            msg += f"{count}➤ {user_id}\n"
+            msg += f"{count} ⟹ {user_id}\n"
             continue
     if count == 0:
         return await mystic.edit_text(_["gban_10"])
