@@ -5,8 +5,8 @@ from strings.filters import command
 from pyrogram.types import InlineKeyboardButton, CallbackQuery, InlineKeyboardMarkup, Message
 from typing import Union
 from pyrogram.types import InlineKeyboardButton
-from AronoX import app
-from AronoX.misc import HAPP, SUDOERS, XCB
+from AarohiX import app
+from AarohiX.misc import HAPP, SUDOERS, XCB
 from config import OWNER_ID
                                        
                                        
