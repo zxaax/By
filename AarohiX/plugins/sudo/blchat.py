@@ -8,7 +8,7 @@ from AarohiX.utils.decorators.language import language
 from config import BANNED_USERS
 
 
-@app.on_message(filters.command(["blchat", "blacklistchat"]) & SUDOERS)
+@app.on_message(filters.command(["حظر مجموعة", "بلك مجموعة"]) & SUDOERS)
 @language
 async def blacklist_chat_func(client, message: Message, _):
     if len(message.command) != 2:
@@ -28,7 +28,7 @@ async def blacklist_chat_func(client, message: Message, _):
 
 
 @app.on_message(
-    filters.command(["whitelistchat", "unblacklistchat", "unblchat"]) & SUDOERS
+    filters.command(["الغاء حظر المجموعة", "الغي حظر المجموعة", "الغاء المجموعة"]) & SUDOERS
 )
 @language
 async def white_funciton(client, message: Message, _):
@@ -43,7 +43,7 @@ async def white_funciton(client, message: Message, _):
     await message.reply_text(_["black_9"])
 
 
-@app.on_message(filters.command(["blchats", "blacklistedchats"]) & ~BANNED_USERS)
+@app.on_message(filters.command(["المجموعات المحظورة", "المجموعات المبلكة"]) & ~BANNED_USERS)
 @language
 async def all_chats(client, message: Message, _):
     text = _["black_7"]
@@ -52,7 +52,7 @@ async def all_chats(client, message: Message, _):
         try:
             title = (await app.get_chat(chat_id)).title
         except:
-            title = "ᴘʀɪᴠᴀᴛᴇ ᴄʜᴀᴛ"
+            title = "دردشة خاصة"
         j = 1
         text += f"{count}. {title}[<code>{chat_id}</code>]\n"
     if j == 0:
