@@ -21,7 +21,7 @@ async def ktm(_: Client, message: Message):
             muted.append(message.reply_to_message.from_user.id)
             await message.reply_text(f"تم كتم  العضو\n│ \n↢بواسطـة : {message.reply_to_message.from_user.mention}\n\n بنجاح ")
             return
-        else: await message.reply("↢لازم تكون أدمن لاستخدام هالأمر", reply_to_message_id=message.message_id)
+        else: await message.reply("⇜ هذا الامر يخص ( الادمن وفوق ) بس", reply_to_message_id=message.message_id)
 
 
 @app.on_message(filters.command("الغاء كتم", "") & filters.group)
@@ -40,7 +40,7 @@ async def unktm(_: Client, message: Message):
             await message.reply_text(f"تم إلغاء كت  العضو\n: {message.reply_to_message.from_user.mention}\n\n بنجاح ")
 
             return
-        else: await message.reply_text("↢لازم تكون أدمن لاستخدام هالأمر", reply_to_message_id=message.message_id)
+        else: await message.reply_text("⇜ هذا الامر يخص ( الادمن وفوق ) بس", reply_to_message_id=message.message_id)
 
 
 @app.on_message(filters.command("المكتومين", ""))
@@ -86,7 +86,7 @@ async def tard(_: Client, message: Message):
 
             await message.reply("↢ تم طرد العضو بنجاح!", reply_to_message_id=message.message_id)
             return
-        else: await message.reply("↢لازم تكون أدمن لاستخدام هالأمر", reply_to_message_id=message.message_id)
+        else: await message.reply("⇜ هذا الامر يخص ( الادمن وفوق ) بس ", reply_to_message_id=message.message_id)
 
 @app.on_message(filters.command("الغاء حظر", "") & filters.group)
 async def untard(_: Client, message: Message):
@@ -104,7 +104,7 @@ async def untard(_: Client, message: Message):
             await message.reply_text(f"تم إلغاء  حظر\n│ \n : {message.reply_to_message.from_user.mention}\n\n بنجاح ")
 
             return
-        else: await message.reply("↢لازم تكون أدمن لاستخدام هالأمر", reply_to_message_id=message.message_id)
+        else: await message.reply("⇜ هذا الامر يخص ( الادمن وفوق ) بس", reply_to_message_id=message.message_id)
 
 
 
