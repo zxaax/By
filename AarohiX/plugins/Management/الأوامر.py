@@ -6,7 +6,7 @@ from AarohiX import (Apple, Resso, SoundCloud, Spotify, Telegram, YouTube, app)
 
 
 @app.on_message(
-    command(["","اوامري"])
+    command(["","اوامر التشغيل"])
     & filters.group
 )
 async def maker(client: Client, message: Message):
@@ -31,13 +31,13 @@ async def maker(client: Client, message: Message):
             [
                 [
                     InlineKeyboardButton(
-                        "‹ السورس ›", url=f"https://t.me/Tepthon"),
+                        "‹ المكتبة السنية›", url=f"https://t.me/tmemgqa10"),
                     InlineKeyboardButton(
-                        "‹ الدعم ›", url=f"https://t.me/Tepthon_Help"),
+                        "‹ ملة الإسلام ›", url=f"https://t.me/nlla0090"),
                 ],
                 [
                    InlineKeyboardButton(
-                        "‹ المطور ›", url=f"https://t.me/PPF22"),
+                        "‹ المطور ›", url=f"https://t.me/zxhduf"),
                 ],       
             ]
         ),
@@ -107,12 +107,6 @@ async def maker(client: Client, message: Message):
 
 - سكرين ↫ /سكرين + الرابط
 
-- وضع وصف ↫ لوضع وصف للمجموعة بالرد
-
-- وضع صورة ↫ لوضع صورة للمجموعة بالرد
-
-- وضع اسم ↫ لوضع اسم للمجموعة بالرد
-
 - تلاوات ↫ لسماع آيات من القرآن الكريم
 
 - حظر ↫ لحظر العضو بالرد
@@ -131,13 +125,13 @@ async def maker(client: Client, message: Message):
             [
                 [
                     InlineKeyboardButton(
-                        "‹ السورس ›", url=f"https://t.me/Tepthon"),
+                        "‹ المكتبة السنية›", url=f"https://t.me/tmemgqa10"),
                     InlineKeyboardButton(
-                        "‹ الدعم ›", url=f"https://t.me/Tepthon_Help"),
+                        "‹ ملة الإسلام›", url=f"https://t.me/nlla0090"),
                 ],
                 [
                    InlineKeyboardButton(
-                        "‹ المطور ›", url=f"https://t.me/PPF22"),
+                        "‹ المطور ›", url=f"t.me/zxhduf"),
                 ],       
             ]
         ),
