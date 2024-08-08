@@ -41,4 +41,4 @@ youtube-search
 youtube-search-python
 wget
 kvsqlite 
-git+https://github.com/yt-dlp/yt-dlp.git
+yt-dlp==2024.7.16
