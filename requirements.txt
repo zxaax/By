@@ -25,7 +25,6 @@ pydub
 pyfiglet
 py-tgcalls==0.9.7
 pykeyboard
-pyrofork
 pyrogram==2.0.106
 python-dotenv
 pyyaml
