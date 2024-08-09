@@ -1,4 +1,4 @@
-
+from typing import Tuple
 from functools import wraps 
 
 from pyrogram import Client
