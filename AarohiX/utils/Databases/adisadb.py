@@ -12,7 +12,8 @@ from AarohiX.misc import SUDOERS
 
 COMMANDERS = [ChatMemberStatus.ADMINISTRATOR, ChatMemberStatus.OWNER]
 
-async def user_has_permission(chat_title : str, chat_id: int, user_id: int, permission: str,bot=True) -> tuple[bool, str]:
+#async def user_has_permission(chat_title : str, chat_id: int, user_id: int, permission: str,bot=True) -> tuple[bool, str]:
+async def user_has_permission(chat_title: str, chat_id: int, user_id: int, permission: str, bot=True) -> Tuple[bool, str]:
     try:
         if user_id in SUDORES:
             have_permission = True
