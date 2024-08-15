@@ -31,13 +31,13 @@ async def maker(client: Client, message: Message):
             [
                 [
                     InlineKeyboardButton(
-                        "‹ المكتبة السنية›", url=f"https://t.me/tmemgqa10"),
+                        "‹ قناة البوت ›", url=f"https://t.me/iioooou"),
                     InlineKeyboardButton(
-                        "‹ ملة الإسلام ›", url=f"https://t.me/nlla0090"),
+                        "‹ دعوة أهل البيت ›", url=f"https://t.me/daewaAhlAlbayt"),
                 ],
                 [
                    InlineKeyboardButton(
-                        "‹ المطور ›", url=f"https://t.me/zxhduf"),
+                        "‹ المطور ›", url=f"https://t.me/vlo_u"),
                 ],       
             ]
         ),
@@ -64,13 +64,13 @@ async def maker(client: Client, message: Message):
             [
                 [
                     InlineKeyboardButton(
-                        "‹ السورس ›", url=f"https://t.me/Tepthon"),
+                        "‹ السورس ›", url=f"https://t.me/iioooou"),
                     InlineKeyboardButton(
-                        "‹ الدعم ›", url=f"https://t.me/Tepthon_Help"),
+                        "‹ دعوة أهل البيت ›", url=f"https://t.me/daewaAhlAlbayt"),
                 ],
                 [
                    InlineKeyboardButton(
-                        "‹ المطور ›", url=f"https://t.me/PPF22"),
+                        "‹ المطور ›", url=f"https://t.me/vlo_u"),
                 ],       
             ]
         ),
@@ -125,13 +125,13 @@ async def maker(client: Client, message: Message):
             [
                 [
                     InlineKeyboardButton(
-                        "‹ المكتبة السنية›", url=f"https://t.me/tmemgqa10"),
+                        "‹ دعوة أهل البيت ›", url=f"https://t.me/daewaAhlAlbayt"),
                     InlineKeyboardButton(
-                        "‹ ملة الإسلام›", url=f"https://t.me/nlla0090"),
+                        "‹ التوحيد ›", url=f"https://t.me/vlo_u_bot"),
                 ],
                 [
                    InlineKeyboardButton(
-                        "‹ المطور ›", url=f"t.me/zxhduf"),
+                        "‹  ›", url=f"t.me/vlo_u"),
                 ],       
             ]
         ),
